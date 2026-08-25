@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#102820" />
+    <meta name="description" content="Entrenamiento: planificación y seguimiento personal, sin cuentas ni servidor." />
+    <meta name="color-scheme" content="light" />
+    <title>Entrenamiento — Plan personal</title>
+    <link rel="icon" href="public/favicon.svg?v=6" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css?v=6" />
+    <script src="js/vendor/lucide.min.js?v=6" defer></script>
+    <script src="js/exercises.js?v=6" defer></script>
+    <script src="js/data.js?v=6" defer></script>
+    <script src="js/routines.js?v=6" defer></script>
+    <script src="js/hiit-routines.js?v=6" defer></script>
+    <script src="js/session-model.js?v=6" defer></script>
+    <script src="js/planner.js?v=6" defer></script>
+    <script src="js/workout.js?v=6" defer></script>
+    <script src="js/state-io.js?v=6" defer></script>
+    <script src="js/app.js?v=6" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegación principal">
+        <a class="brand" href="#inicio" data-route="inicio" aria-label="Entrenamiento, ir al inicio">
+          <span class="brand-mark" data-icon="dumbbell" aria-hidden="true"></span>
+          <span><strong>Entrenamiento</strong><small>Entrena a tu ritmo</small></span>
+        </a>
+
+        <nav class="side-nav">
+          <a href="#inicio" data-route="inicio" class="nav-link is-active"><span data-icon="home"></span><span>Inicio</span></a>
+          <a href="#plan" data-route="plan" class="nav-link"><span data-icon="calendar"></span><span>Mi plan</span></a>
+          <a href="#biblioteca" data-route="biblioteca" class="nav-link"><span data-icon="library"></span><span>Ejercicios</span></a>
+          <a href="#equipamiento" data-route="equipamiento" class="nav-link"><span data-icon="dumbbell"></span><span>Equipamiento</span></a>
+          <a href="#progreso" data-route="progreso" class="nav-link"><span data-icon="chart"></span><span>Progreso</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="profile-chip" type="button" data-action="open-profile">
+            <span class="avatar" data-icon="user" aria-hidden="true"></span>
+            <span><strong data-profile-name>Mi perfil</strong><small>Plan semanal</small></span>
+            <span data-icon="chevron"></span>
+          </button>
+          <p class="privacy-note"><span data-icon="lock"></span> Tus datos se guardan solo en este dispositivo.</p>
+        </div>
+      </aside>
+
+      <header class="mobile-header">
+        <a class="brand brand-mobile" href="#inicio" data-route="inicio" aria-label="Entrenamiento, ir al inicio"><span class="brand-mark" data-icon="dumbbell" aria-hidden="true"></span><strong>Entrenamiento</strong></a>
+        <button class="icon-button" type="button" data-action="open-profile" aria-label="Abrir perfil"><span class="avatar" data-icon="user" aria-hidden="true"></span></button>
+      </header>
+
+      <main id="main-content" tabindex="-1">
+        <section id="view-inicio" class="view is-active" data-view="inicio" aria-labelledby="inicio-title"></section>
+        <section id="view-plan" class="view" data-view="plan" aria-labelledby="plan-title" hidden></section>
+        <section id="view-biblioteca" class="view" data-view="biblioteca" aria-labelledby="biblioteca-title" hidden></section>
+        <section id="view-equipamiento" class="view" data-view="equipamiento" aria-labelledby="equipamiento-title" hidden></section>
+        <section id="view-progreso" class="view" data-view="progreso" aria-labelledby="progreso-title" hidden></section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Navegación móvil">
+        <a href="#inicio" data-route="inicio" class="nav-link is-active"><span data-icon="home"></span><span>Inicio</span></a>
+        <a href="#plan" data-route="plan" class="nav-link"><span data-icon="calendar"></span><span>Mi plan</span></a>
+        <a href="#biblioteca" data-route="biblioteca" class="nav-link"><span data-icon="library"></span><span>Ejercicios</span></a>
+        <a href="#equipamiento" data-route="equipamiento" class="nav-link"><span data-icon="dumbbell"></span><span>Material</span></a>
+        <a href="#progreso" data-route="progreso" class="nav-link"><span data-icon="chart"></span><span>Progreso</span></a>
+      </nav>
+    </div>
+
+    <section id="workout-screen" class="workout-screen" aria-labelledby="workout-screen-title" hidden></section>
+    <dialog id="exercise-dialog" class="app-dialog detail-dialog" aria-labelledby="exercise-dialog-title"></dialog>
+    <dialog id="profile-dialog" class="app-dialog profile-dialog" aria-labelledby="profile-dialog-title"></dialog>
+    <dialog id="confirm-dialog" class="app-dialog confirm-dialog" aria-labelledby="confirm-dialog-title"></dialog>
+
+    <div id="toast-region" class="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+    <div id="confetti" class="confetti" aria-hidden="true"></div>
+  </body>
+</html>

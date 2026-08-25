@@ -1,0 +1,13 @@
+{
+  "name": "entrenamiento",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A serverless personal training planner built with vanilla web technologies",
+  "scripts": {
+    "build:pages": "python3 scripts/build_pages.py",
+    "test:browser": "python3 scripts/run_browser_tests.py",
+    "test:pages": "npm run build:pages && python3 scripts/run_browser_tests.py --site-root dist",
+    "test:python": "python3 -c \"import ast, pathlib; [ast.parse(path.read_text(encoding='utf-8'), filename=str(path)) for folder in ('scripts', 'tests') for path in pathlib.Path(folder).glob('*.py')]\"",
+    "test": "npm run test:python && node --check scripts/strip_webp_metadata.js && node --check js/exercises.js && node --check js/data.js && node --check js/routines.js && node --check js/hiit-routines.js && node --check js/session-model.js && node --check js/planner.js && node --check js/workout.js && node --check js/state-io.js && node --check js/app.js && node tests/planner.test.js && node tests/workout.test.js && node tests/state_io.test.js && node tests/repository_security.test.js"
+  }
+}
