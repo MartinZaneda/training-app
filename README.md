@@ -1,6 +1,6 @@
 # Entrenamiento
 
-Entrenamiento is a private, serverless personal training planner built with semantic HTML, modern CSS, and vanilla JavaScript. It runs entirely in the browser, requires no account, and keeps progress on the user's device.
+Entrenamiento is a privacy-first, serverless personal training planner built with semantic HTML, modern CSS, and vanilla JavaScript. It runs entirely in the browser, requires no account, and keeps progress on the user's device.
 
 The interface is written in Spanish and uses one neutral local profile.
 
@@ -13,6 +13,8 @@ The application has two closed, document-driven catalogs:
 - 48 complementary HIIT routines, identified as H01–H48.
 
 Routine sequences, prescriptions, optional positions, editorial duration bands, logistics, and taxonomy come from the supplied **Biblioteca final de rutinas** and **Biblioteca final de rutinas HIIT complementarias** documents, extended with the requested walking exercise and three continuous walking sessions. Public protocol durations are calculated from their executable phases so they cannot drift from the player. H01–H48 supplement rather than replace R01–R49.
+
+Every exercise exposes one canonical, categorized taxonomy object: movement family, primary body region, controlled movement patterns, primary muscles, supporting muscles, equipment families, and documented difficulty. Each value is an individual short tag. Supporting muscles remain searchable and visible in the technical detail, but never satisfy a primary-muscle filter.
 
 The selector starts with the catalog and then exposes only the taxonomy available in it. General routines use:
 
@@ -34,7 +36,7 @@ The selector can then refine general results with movement pattern (`PAT`), stat
 - Per-exercise diary for exact dumbbell or kettlebell weight, band color and quantity, rowing damper, repetitions, timed work, repetitions left in reserve, and perceived effort; the latest record and its recommendation to raise, maintain, or lower the load are shown next time.
 - A canonical phase-by-phase execution model for HIIT, rowing, and walking sessions, with selectable documented variants, exact countdowns, manual completion for distance or repetition targets, and an auditable breakdown of warm-up, active work, recovery, transitions, and cool-down.
 - E01–E91 exercise library with anatomy, equipment, technique, and safety metadata.
-- Exercise filters for muscle group, specific muscle, equipment, and documented difficulty.
+- Exercise filters for primary body region, primary muscle, movement pattern, equipment, and documented difficulty.
 - Verified exercise illustrations where an exact match exists and explicit documentary placeholders otherwise.
 - Visual equipment catalog for the available SmartBells, kettlebell, bench, attachments, bands, anchors, and Echo Rower.
 - Weekly history, streaks, completion totals, and an eight-week activity chart.
@@ -102,7 +104,7 @@ public/equipment-images/           Equipment imagery
 
 ## Document import utilities
 
-The three importers parse and validate the original supplied document cores (E01–E90, R01–R46, and H01–H48). Their standard output is a review artifact, not a drop-in replacement for the runtime files: the live catalogs also contain the explicitly requested walking extension and UI-ready canonical names, while `js/session-model.js` is the single source of truth for executable timelines, phase cues, full-session duration variants, and explicit strength rests. Reconcile those layers and run every gate before replacing a runtime catalog.
+The exercise importer parses E01–E90 from the supplied document and appends the explicitly requested E91 walking extension with the same validated taxonomy contract, producing the complete runtime exercise catalog. The routine importers parse their original supplied document cores, while `js/session-model.js` is the single source of truth for executable timelines, phase cues, full-session duration variants, and explicit strength rests. Run every gate after regenerating a catalog.
 
 Runtime validation rejects missing E01–E91, R01–R49, or H01–H48 records. General routine coverage must remain 91/91; HIIT protocols keep only the exercise references explicitly present in their definitions.
 
@@ -112,7 +114,7 @@ Runtime validation rejects missing E01–E91, R01–R49, or H01–H48 records. G
 npm test
 ```
 
-Validation checks syntax, all 97 exact routine identifiers and titles, seven high-intensity equipment families, 91/91 general coverage, 91/91 exercise-image assignments, protocol and exercise prescriptions, optional items, taxonomy filter counts, the three weekly presets, session preservation, equipment references, inventory-safe selections, timer restoration, performance history, hardened state migration, and application load order. It also verifies every protocol variant, phase total, exercise reference, explicit strength rest, immutable workflow dependency, owner-only trigger, repository privacy policy, and the regressions that previously interpreted identifiers or bench angles as seconds.
+Validation checks syntax, all 97 exact routine identifiers and titles, seven high-intensity equipment families, 91/91 general coverage, 91/91 exercise-image assignments, protocol and exercise prescriptions, optional items, the categorized exercise taxonomy, reactive filter counts, the three weekly presets, session preservation, equipment references, inventory-safe selections, timer restoration, performance history, hardened state migration, and application load order. It rejects duplicate, unknown, uncategorized, or legacy exercise tags. It also verifies every protocol variant, phase total, exercise reference, explicit strength rest, immutable workflow dependency, owner-only trigger, repository privacy policy, and the regressions that previously interpreted identifiers or bench angles as seconds.
 
 The separate Chrome smoke gates exercise the full strength and interval workflows, data-management actions, all five routes at ten viewport widths from 320 to 1440 pixels, and every exercise and routine detail. They also reject horizontal overflow, internal identifiers, inaccessible actions, unlabeled fields, missing image alternatives, and visible text below 12 pixels.
 

@@ -114,6 +114,61 @@ ANATOMY = {
 }
 
 
+MOVEMENT_PATTERNS: dict[str, list[str]] = {}
+
+
+def register_patterns(exercise_ids: str, *patterns: str) -> None:
+    for exercise_id in exercise_ids.split():
+        if exercise_id in MOVEMENT_PATTERNS:
+            raise ValueError(f"Patrones duplicados para {exercise_id}.")
+        MOVEMENT_PATTERNS[exercise_id] = list(patterns)
+
+
+register_patterns("E01 E02 E05 E14 E21 E22 E23", "Empuje horizontal")
+register_patterns("E03", "Empuje inclinado")
+register_patterns("E04", "Empuje inclinado", "Empuje vertical")
+register_patterns("E06 E07 E24", "Empuje vertical")
+register_patterns("E08", "Empuje vertical", "Potencia de tren inferior")
+register_patterns("E09 E10 E15 E16 E17", "Apertura de pecho")
+register_patterns("E11 E37", "Extensión de hombro")
+register_patterns("E12 E13", "Elevación de hombro")
+register_patterns("E18 E19 E20", "Extensión de codo")
+register_patterns("E25 E26 E38 E39", "Tirón vertical")
+register_patterns("E27 E40", "Control escapular")
+register_patterns("E28 E29 E30 E31 E32 E33 E34 E35 E36", "Tirón horizontal")
+register_patterns("E41 E42 E43 E44", "Flexión de codo")
+register_patterns("E45 E46 E47 E48", "Sentadilla")
+register_patterns("E49 E50 E51 E52 E53", "Zancada")
+register_patterns("E54", "Flexión plantar")
+register_patterns("E55", "Flexión plantar", "Estabilidad unilateral")
+register_patterns("E56 E57 E59 E60 E61 E62", "Bisagra de cadera")
+register_patterns("E58", "Bisagra de cadera", "Estabilidad unilateral")
+register_patterns("E63", "Extensión de cadera")
+register_patterns("E64", "Extensión de cadera", "Estabilidad unilateral")
+register_patterns("E65 E67", "Potencia de cadera")
+register_patterns("E66", "Potencia de cadera", "Antirrotación")
+register_patterns("E68", "Potencia de cadera", "Tirón vertical")
+register_patterns("E69", "Potencia de cadera", "Estabilidad sobre cabeza")
+register_patterns("E70 E71", "Flexión de tronco")
+register_patterns("E72 E73", "Elevación de piernas")
+register_patterns("E74", "Antirrotación")
+register_patterns("E75 E76", "Rotación de tronco")
+register_patterns("E77", "Transporte de carga")
+register_patterns("E78", "Transporte de carga", "Antiflexión lateral")
+register_patterns("E79", "Transporte de carga", "Estabilidad sobre cabeza")
+register_patterns("E80", "Integración multiplanar", "Estabilidad sobre cabeza")
+register_patterns("E81", "Bisagra de cadera", "Estabilidad sobre cabeza")
+register_patterns("E82", "Sentadilla", "Empuje vertical")
+register_patterns("E83", "Potencia de cadera", "Empuje vertical")
+register_patterns("E84", "Tirón horizontal", "Antirrotación")
+register_patterns("E85 E87", "Remo continuo")
+register_patterns("E86", "Técnica de remo")
+register_patterns("E88", "Intervalos de remo")
+register_patterns("E89", "Potencia de remo")
+register_patterns("E90", "Potencia de remo", "Técnica de remo")
+register_patterns("E91", "Caminata")
+
+
 IMAGE_BY_ID = {
     "E01": "press-pecho-plano", "E02": "press-pecho-agarre-neutro", "E03": "press-inclinado-mancuernas",
     "E04": "press-inclinado-alto", "E05": "press-declinado-mancuernas", "E06": "press-hombros-sentado",
@@ -170,6 +225,26 @@ def clean(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
+def public_text(value: str) -> str:
+    """Expand source abbreviations before text can reach the interface."""
+    value = clean(value)
+    replacements = (
+        (r"\bDB\s*/\s*KB\b", "mancuerna o pesa rusa"),
+        (r"\bKB\s*/\s*DB\b", "pesa rusa o mancuerna"),
+        (r"\bKB\s*/\s*una\s+DB\b", "pesa rusa o una mancuerna"),
+        (r"\b(?:2|dos)\s+DB\b", "dos mancuernas"),
+        (r"\b(?:1|una)\s+DB\b", "una mancuerna"),
+        (r"\bDB\b", "mancuernas"),
+        (r"\bKB\b", "pesa rusa"),
+        (r"\bRDL\b", "peso muerto rumano"),
+        (r"\bROM\b", "recorrido"),
+        (r"\bspm\b", "paladas por minuto"),
+    )
+    for pattern, replacement in replacements:
+        value = re.sub(pattern, replacement, value, flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", value).strip()
+
+
 def equipment_data(value: str, exercise_id: str) -> tuple[list[str], list[dict]]:
     normalized = value.casefold()
     tags: list[str] = []
@@ -189,14 +264,16 @@ def equipment_data(value: str, exercise_id: str) -> tuple[list[str], list[dict]]
     if re.search(r"kettlebell|\bkb\b", normalized):
         add_tag("Pesa rusa"); add_ref("equipment", "pesa-rusa-ajustable")
     if re.search(r"banco|crunch/situp|chin-up|head extension", normalized):
-        add_tag("Banco y accesorios"); add_ref("equipment", "super-bench-pro-v2")
+        add_tag("Banco ajustable"); add_ref("equipment", "super-bench-pro-v2")
     if re.search(r"banda|\bband|barra larga|agarres|anclaje", normalized):
-        add_tag("Bandas y agarres"); add_ref("equipment", "rogue-monster-bands")
+        add_tag("Bandas elásticas"); add_ref("equipment", "rogue-monster-bands")
     if exercise_id >= "E85" or "echo rower" in normalized:
-        add_tag("Rogue Echo Rower"); add_ref("equipment", "rogue-echo-rower")
+        add_tag("Máquina de remo"); add_ref("equipment", "rogue-echo-rower")
     if "crunch/situp" in normalized:
+        add_tag("Accesorio abdominal")
         add_ref("bench-accessory", "crunch-situp")
     if "chin-up" in normalized:
+        add_tag("Barra de dominadas")
         add_ref("bench-accessory", "chin-up-attachment")
     if "asiento" in normalized:
         add_ref("bench-accessory", "asiento-inclinado")
@@ -213,10 +290,46 @@ def equipment_data(value: str, exercise_id: str) -> tuple[list[str], list[dict]]
     if "anclaje bajo" in normalized:
         add_ref("anchor", "anclaje-bajo-variable")
     if "peso corporal" in normalized or "suelo" in normalized:
-        add_tag("Sin equipamiento"); add_ref("support", "suelo")
+        add_tag("Peso corporal"); add_ref("support", "suelo")
     if not tags:
-        add_tag("Sin equipamiento"); add_ref("support", "sin-equipamiento")
+        add_tag("Peso corporal"); add_ref("support", "sin-equipamiento")
+    if not any(tag in {"Mancuernas", "Pesa rusa", "Bandas elásticas"} for tag in tags):
+        specific_first = {"Accesorio abdominal", "Barra de dominadas"}
+        tags.sort(key=lambda tag: 0 if tag in specific_first else 1)
     return tags, refs
+
+
+def walking_exercise() -> dict:
+    return {
+        "id": "e91",
+        "sourceId": "E91",
+        "name": "Caminata a ritmo sostenible",
+        "shortName": "Caminata sostenible",
+        "taxonomy": {
+            "family": "Cardio",
+            "primaryRegion": "Piernas",
+            "patterns": MOVEMENT_PATTERNS["E91"],
+            "primaryMuscles": ["Cuádriceps", "Glúteo mayor"],
+            "supportingMuscles": ["Isquiotibiales", "Gemelos", "Sóleo", "Core anterior"],
+            "equipment": ["Calzado cómodo"],
+            "difficulty": "Básico",
+        },
+        "equipment": "Calzado cómodo y recorrido seguro",
+        "equipmentRefs": [{"kind": "support", "id": "calzado"}],
+        "dose": "20–60 min",
+        "image": "public/exercise-images/caminata-ritmo-sostenible.webp",
+        "cue": "Mantén el ritmo indicado por la rutina con una zancada natural y una intensidad que puedas sostener.",
+        "steps": [
+            "Elige un recorrido seguro y, si es posible, con terreno regular.",
+            "Empieza de tres a cinco minutos a ritmo suave.",
+            "Camina erguido, con hombros relajados y balanceo natural de los brazos.",
+            "Ajusta el ritmo con la prueba del habla indicada por la rutina.",
+            "Termina de tres a cinco minutos reduciendo el ritmo de forma gradual.",
+        ],
+        "safety": "Usa calzado cómodo, mantente atento al terreno y adapta el ritmo a la temperatura y a la visibilidad. Reduce el paso o detente ante dolor, mareo o una dificultad respiratoria inusual.",
+        "documentedExecution": "1. Elegir un recorrido seguro. 2. Empezar de tres a cinco minutos a ritmo suave. 3. Caminar erguido con balanceo natural de los brazos. 4. Ajustar el ritmo con la prueba del habla indicada. 5. Reducir el ritmo gradualmente al terminar.",
+        "documentedTechnique": "Mantener una zancada natural, apoyar el pie con control y evitar alargar el paso de forma forzada. El ritmo de la rutina se regula mediante la prueba del habla.",
+    }
 
 
 def extract(source: Path) -> list[dict]:
@@ -240,6 +353,8 @@ def extract(source: Path) -> list[dict]:
         raise ValueError("La fuente debe contener exactamente E01–E90, una vez en detalle y una vez en el resumen.")
     if set(ANATOMY) != set(expected_ids):
         raise ValueError("La taxonomía anatómica no cubre exactamente E01–E90.")
+    if set(MOVEMENT_PATTERNS) != set([*expected_ids, "E91"]):
+        raise ValueError("La taxonomía de patrones no cubre exactamente E01–E91.")
     if set(IMAGE_BY_ID) != set(expected_ids):
         raise ValueError("El catálogo visual debe cubrir exactamente E01–E90.")
 
@@ -253,45 +368,39 @@ def extract(source: Path) -> list[dict]:
         detail = detailed[exercise_id]
         summary = summaries[exercise_id]
         metadata = detail["cells"][1]
-        execution = clean(detail["cells"][2])
-        technique = clean(detail["cells"][3])
+        execution = public_text(detail["cells"][2])
+        technique = public_text(detail["cells"][3])
         equipment_prefix = re.split(r"\*\*Primarios?:\*\*|\*\*Primario:\*\*|\*\*Técnica", metadata, maxsplit=1)[0]
-        documented_equipment = clean(equipment_prefix).rstrip(". ")
+        documented_equipment_source = clean(equipment_prefix).rstrip(". ")
         if number >= 85:
-            documented_equipment = "Rogue Echo Rower"
-        tags, refs = equipment_data(f"{documented_equipment} {summary['mainEquipment']}", exercise_id)
-        steps = [clean(item).rstrip(". ") + "." for item in NUMBERED_STEP.split(execution) if clean(item)]
+            documented_equipment_source = "Rogue Echo Rower"
+        tags, refs = equipment_data(f"{documented_equipment_source} {summary['mainEquipment']}", exercise_id)
+        documented_equipment = public_text(documented_equipment_source)
+        steps = [public_text(item).rstrip(". ") + "." for item in NUMBERED_STEP.split(execution) if public_text(item)]
         if not steps:
             steps = [execution]
         dose_matches = re.findall(r"\*\*([^*]*(?:×|min|bloques)[^*]*)\*\*", detail["cells"][3])
-        dose = clean(dose_matches[-1]).rstrip(". ") if dose_matches else "Según tolerancia y técnica"
+        dose = public_text(dose_matches[-1]).rstrip(". ") if dose_matches else "Según tolerancia y técnica"
         cue = technique.split(". ")[0].strip(" .") + "."
         category = next(label for number_range, label in categories.items() if number in number_range)
         anatomy_item = ANATOMY[exercise_id]
-        muscle_groups = []
-        if number >= 77:
-            muscle_groups.append("Cuerpo completo")
-        for muscle in anatomy_item["primaryMuscles"]:
-            for group in GROUPS_BY_MUSCLE[muscle]:
-                if group not in muscle_groups:
-                    muscle_groups.append(group)
+        primary_region = "Cuerpo completo" if number >= 77 else GROUPS_BY_MUSCLE[anatomy_item["primaryMuscles"][0]][0]
         exercises.append({
             "id": exercise_id.lower(),
             "sourceId": exercise_id,
-            "name": detail["name"],
-            "shortName": summary["shortName"],
-            "category": category,
-            "pattern": summary["pattern"],
-            "muscle": "Cuerpo completo" if number >= 77 else "Core" if number >= 70 else "Glúteos e isquios" if number >= 56 else "Piernas" if number >= 45 else "Espalda" if number >= 25 else "Brazos" if number >= 18 and number <= 20 else "Hombros" if number in [6, 7, 8, 12, 13, 24] else "Pecho",
-            "muscleGroups": muscle_groups,
-            "difficulty": summary["level"],
-            "documentedLevel": summary["level"],
+            "name": public_text(detail["name"]),
+            "shortName": public_text(summary["shortName"]),
+            "taxonomy": {
+                "family": category,
+                "primaryRegion": primary_region,
+                "patterns": MOVEMENT_PATTERNS[exercise_id],
+                "primaryMuscles": anatomy_item["primaryMuscles"],
+                "supportingMuscles": anatomy_item["secondaryMuscles"],
+                "equipment": tags,
+                "difficulty": summary["level"],
+            },
             "equipment": documented_equipment,
-            "mainEquipment": summary["mainEquipment"],
-            "equipmentTags": tags,
             "equipmentRefs": refs,
-            "primaryMuscle": anatomy_item["primaryMuscles"][0],
-            **anatomy_item,
             "dose": dose,
             "image": f"public/exercise-images/{IMAGE_BY_ID[exercise_id]}.webp" if exercise_id in IMAGE_BY_ID else None,
             "cue": cue,
@@ -300,6 +409,7 @@ def extract(source: Path) -> list[dict]:
             "documentedExecution": execution,
             "documentedTechnique": technique,
         })
+    exercises.append(walking_exercise())
     return exercises
 
 

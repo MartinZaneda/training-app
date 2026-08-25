@@ -7,21 +7,28 @@
     "sourceId": "E01",
     "name": "Press plano con mancuernas",
     "shortName": "Press plano con mancuernas",
-    "category": "Empuje",
-    "pattern": "Pecho · empuje horizontal",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho",
-      "Brazos"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Empuje horizontal"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Deltoides anterior",
+        "Serrato anterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "SmartBells 4–41,5 kg c/u; banco 0°",
-    "mainEquipment": "SmartBells + 0°",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -31,16 +38,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Deltoides anterior",
-      "Serrato anterior",
-      "Core anterior"
     ],
     "dose": "2–4 × 6–12",
     "image": "public/exercise-images/press-pecho-plano.webp",
@@ -61,21 +58,26 @@
     "sourceId": "E02",
     "name": "Press plano agarre neutro",
     "shortName": "Press plano neutro",
-    "category": "Empuje",
-    "pattern": "Pecho · empuje horizontal",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho",
-      "Brazos"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Empuje horizontal"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Deltoides anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "SmartBells, banco 0°",
-    "mainEquipment": "SmartBells + 0°",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -85,14 +87,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Deltoides anterior"
     ],
     "dose": "2–4 × 6–12",
     "image": "public/exercise-images/press-pecho-agarre-neutro.webp",
@@ -112,20 +106,26 @@
     "sourceId": "E03",
     "name": "Press inclinado bajo",
     "shortName": "Press inclinado bajo",
-    "category": "Empuje",
-    "pattern": "Pecho · empuje diagonal",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Empuje inclinado"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor"
+      ],
+      "supportingMuscles": [
+        "Deltoides anterior",
+        "Tríceps braquial"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banco 20–30° + SmartBells",
-    "mainEquipment": "SmartBells + 20–30°",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -135,14 +135,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor"
-    ],
-    "secondaryMuscles": [
-      "Deltoides anterior",
-      "Tríceps braquial"
     ],
     "dose": "2–4 × 6–12",
     "image": "public/exercise-images/press-inclinado-mancuernas.webp",
@@ -163,21 +155,27 @@
     "sourceId": "E04",
     "name": "Press inclinado alto",
     "shortName": "Press inclinado alto",
-    "category": "Empuje",
-    "pattern": "Hombro/pecho · empuje",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Hombros",
-      "Pecho"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Empuje inclinado",
+        "Empuje vertical"
+      ],
+      "primaryMuscles": [
+        "Deltoides anterior",
+        "Pectoral mayor"
+      ],
+      "supportingMuscles": [
+        "Tríceps braquial"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banco 40–60°",
-    "mainEquipment": "SmartBells + 40–60°",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -187,14 +185,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Deltoides anterior",
-    "primaryMuscles": [
-      "Deltoides anterior",
-      "Pectoral mayor"
-    ],
-    "secondaryMuscles": [
-      "Tríceps braquial"
     ],
     "dose": "2–4 × 6–12",
     "image": "public/exercise-images/press-inclinado-alto.webp",
@@ -215,20 +205,27 @@
     "sourceId": "E05",
     "name": "Press declinado con mancuernas",
     "shortName": "Press declinado",
-    "category": "Empuje",
-    "pattern": "Pecho · empuje",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Empuje horizontal"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor"
+      ],
+      "supportingMuscles": [
+        "Tríceps braquial",
+        "Deltoides anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable",
+        "Accesorio abdominal"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banco en declive usando Crunch/Situp; SmartBells",
-    "mainEquipment": "SmartBells + Crunch/Situp",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -242,14 +239,6 @@
         "kind": "bench-accessory",
         "id": "crunch-situp"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor"
-    ],
-    "secondaryMuscles": [
-      "Tríceps braquial",
-      "Deltoides anterior"
     ],
     "dose": "2–4 × 6–12",
     "image": "public/exercise-images/press-declinado-mancuernas.webp",
@@ -271,20 +260,29 @@
     "sourceId": "E06",
     "name": "Press de hombro sentado",
     "shortName": "Press hombro sentado",
-    "category": "Empuje",
-    "pattern": "Hombro · empuje vertical",
-    "muscle": "Hombros",
-    "muscleGroups": [
-      "Hombros"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Empuje vertical"
+      ],
+      "primaryMuscles": [
+        "Deltoides anterior",
+        "Deltoides lateral"
+      ],
+      "supportingMuscles": [
+        "Tríceps braquial",
+        "Trapecio",
+        "Serrato anterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Banco 80–85° + asiento; SmartBells",
-    "mainEquipment": "SmartBells + 80–85°",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -298,17 +296,6 @@
         "kind": "bench-accessory",
         "id": "asiento-inclinado"
       }
-    ],
-    "primaryMuscle": "Deltoides anterior",
-    "primaryMuscles": [
-      "Deltoides anterior",
-      "Deltoides lateral"
-    ],
-    "secondaryMuscles": [
-      "Tríceps braquial",
-      "Trapecio",
-      "Serrato anterior",
-      "Core anterior"
     ],
     "dose": "2–4 × 6–12",
     "image": "public/exercise-images/press-hombros-sentado.webp",
@@ -329,36 +316,33 @@
     "sourceId": "E07",
     "name": "Press militar de pie con mancuernas",
     "shortName": "Press militar de pie",
-    "category": "Empuje",
-    "pattern": "Hombro · empuje/estabilidad",
-    "muscle": "Hombros",
-    "muscleGroups": [
-      "Hombros",
-      "Brazos"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Empuje vertical"
+      ],
+      "primaryMuscles": [
+        "Deltoides anterior",
+        "Deltoides lateral",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Core anterior",
+        "Glúteo mayor",
+        "Serrato anterior"
+      ],
+      "equipment": [
+        "Mancuernas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "SmartBells",
-    "mainEquipment": "SmartBells",
-    "equipmentTags": [
-      "Mancuernas"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "smartbells-pro"
       }
-    ],
-    "primaryMuscle": "Deltoides anterior",
-    "primaryMuscles": [
-      "Deltoides anterior",
-      "Deltoides lateral",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Core anterior",
-      "Glúteo mayor",
-      "Serrato anterior"
     ],
     "dose": "2–4 × 6–10",
     "image": "public/exercise-images/press-militar-pie-mancuernas.webp",
@@ -377,25 +361,31 @@
   {
     "id": "e08",
     "sourceId": "E08",
-    "name": "Press con impulso con mancuernas o una pesa rusa",
+    "name": "Push press con mancuernas o una kettlebell",
     "shortName": "Push press",
-    "category": "Empuje",
-    "pattern": "Potencia · empuje",
-    "muscle": "Hombros",
-    "muscleGroups": [
-      "Hombros",
-      "Brazos",
-      "Piernas",
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
-    "equipment": "2 SmartBells o 1 KB",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Empuje vertical",
+        "Potencia de tren inferior"
+      ],
+      "primaryMuscles": [
+        "Deltoides anterior",
+        "Tríceps braquial",
+        "Cuádriceps",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Avanzado"
+    },
+    "equipment": "2 SmartBells o 1 pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -405,16 +395,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Deltoides anterior",
-    "primaryMuscles": [
-      "Deltoides anterior",
-      "Tríceps braquial",
-      "Cuádriceps",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Core anterior"
     ],
     "dose": "3–5 × 3–8",
     "image": "public/exercise-images/push-press-mancuernas.webp",
@@ -435,20 +415,26 @@
     "sourceId": "E09",
     "name": "Aperturas planas",
     "shortName": "Apertura plana",
-    "category": "Empuje",
-    "pattern": "Pecho · aducción",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Apertura de pecho"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor"
+      ],
+      "supportingMuscles": [
+        "Deltoides anterior",
+        "Bíceps braquial"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "SmartBells, banco 0°",
-    "mainEquipment": "SmartBells + 0°",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -458,14 +444,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor"
-    ],
-    "secondaryMuscles": [
-      "Deltoides anterior",
-      "Bíceps braquial"
     ],
     "dose": "2–4 × 10–15",
     "image": "public/exercise-images/aperturas-mancuernas.webp",
@@ -485,20 +463,25 @@
     "sourceId": "E10",
     "name": "Aperturas inclinadas",
     "shortName": "Apertura inclinada",
-    "category": "Empuje",
-    "pattern": "Pecho · aducción diagonal",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Apertura de pecho"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor"
+      ],
+      "supportingMuscles": [
+        "Deltoides anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banco 20–30° + SmartBells",
-    "mainEquipment": "SmartBells + 20–30°",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -508,13 +491,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor"
-    ],
-    "secondaryMuscles": [
-      "Deltoides anterior"
     ],
     "dose": "2–3 × 10–15",
     "image": "public/exercise-images/aperturas-inclinadas.webp",
@@ -535,21 +511,28 @@
     "sourceId": "E11",
     "name": "Pullover con mancuerna",
     "shortName": "Pullover",
-    "category": "Empuje",
-    "pattern": "Hombro/dorsal/pecho",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Espalda",
-      "Pecho"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Extensión de hombro"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Pectoral mayor"
+      ],
+      "supportingMuscles": [
+        "Tríceps braquial",
+        "Serrato anterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Una SmartBell; banco 0°; Head Extension si hace falta longitud",
-    "mainEquipment": "DB + banco",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -564,16 +547,6 @@
         "id": "extension-cabeza"
       }
     ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Pectoral mayor"
-    ],
-    "secondaryMuscles": [
-      "Tríceps braquial",
-      "Serrato anterior",
-      "Core anterior"
-    ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/pullover-mancuerna.webp",
     "cue": "No perseguir profundidad si aparece tirón anterior en hombro.",
@@ -583,29 +556,35 @@
       "Llevarla por detrás de la cabeza con codos ligeramente flexionados.",
       "Volver sobre el tórax sin arquear excesivamente."
     ],
-    "safety": "No perseguir profundidad si aparece tirón anterior en hombro. Head Pad añade apoyo, no ROM obligatorio. 2–4 × 8–15.",
+    "safety": "No perseguir profundidad si aparece tirón anterior en hombro. Head Pad añade apoyo, no recorrido obligatorio. 2–4 × 8–15.",
     "documentedExecution": "1. Tumbarse longitudinalmente, cabeza apoyada. 2. Sujetar una mancuerna con ambas manos. 3. Llevarla por detrás de la cabeza con codos ligeramente flexionados. 4. Volver sobre el tórax sin arquear excesivamente.",
-    "documentedTechnique": "No perseguir profundidad si aparece tirón anterior en hombro. Head Pad añade apoyo, no ROM obligatorio. 2–4 × 8–15."
+    "documentedTechnique": "No perseguir profundidad si aparece tirón anterior en hombro. Head Pad añade apoyo, no recorrido obligatorio. 2–4 × 8–15."
   },
   {
     "id": "e12",
     "sourceId": "E12",
     "name": "Elevación lateral",
     "shortName": "Elevación lateral",
-    "category": "Empuje",
-    "pattern": "Hombro",
-    "muscle": "Hombros",
-    "muscleGroups": [
-      "Hombros"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Elevación de hombro"
+      ],
+      "primaryMuscles": [
+        "Deltoides lateral"
+      ],
+      "supportingMuscles": [
+        "Manguito rotador",
+        "Trapecio"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "SmartBells 4 kg+ o banda #0/#1",
-    "mainEquipment": "DB/banda",
-    "equipmentTags": [
-      "Mancuernas",
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -615,14 +594,6 @@
         "kind": "equipment",
         "id": "rogue-monster-bands"
       }
-    ],
-    "primaryMuscle": "Deltoides lateral",
-    "primaryMuscles": [
-      "Deltoides lateral"
-    ],
-    "secondaryMuscles": [
-      "Manguito rotador",
-      "Trapecio"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/elevacion-lateral.webp",
@@ -642,20 +613,26 @@
     "sourceId": "E13",
     "name": "Elevación frontal",
     "shortName": "Elevación frontal",
-    "category": "Empuje",
-    "pattern": "Hombro",
-    "muscle": "Hombros",
-    "muscleGroups": [
-      "Hombros"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Elevación de hombro"
+      ],
+      "primaryMuscles": [
+        "Deltoides anterior"
+      ],
+      "supportingMuscles": [
+        "Pectoral mayor",
+        "Serrato anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "SmartBells o banda",
-    "mainEquipment": "DB/banda",
-    "equipmentTags": [
-      "Mancuernas",
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -665,14 +642,6 @@
         "kind": "equipment",
         "id": "rogue-monster-bands"
       }
-    ],
-    "primaryMuscle": "Deltoides anterior",
-    "primaryMuscles": [
-      "Deltoides anterior"
-    ],
-    "secondaryMuscles": [
-      "Pectoral mayor",
-      "Serrato anterior"
     ],
     "dose": "2–3 × 10–15",
     "image": "public/exercise-images/elevacion-frontal-alterna.webp",
@@ -692,20 +661,26 @@
     "sourceId": "E14",
     "name": "Press de pecho con banda",
     "shortName": "Press pecho banda",
-    "category": "Empuje",
-    "pattern": "Empuje horizontal",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho",
-      "Brazos"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Empuje horizontal"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Deltoides anterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Anclaje lateral/posterior a altura torácica; agarres",
-    "mainEquipment": "Banda + anclaje",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -719,15 +694,6 @@
         "kind": "anchor",
         "id": "anclaje-lateral"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Deltoides anterior",
-      "Core anterior"
     ],
     "dose": "2–4 × 8–20",
     "image": "public/exercise-images/press-pecho-banda-anclada.webp",
@@ -748,19 +714,25 @@
     "sourceId": "E15",
     "name": "Apertura horizontal con banda",
     "shortName": "Fly horizontal banda",
-    "category": "Empuje",
-    "pattern": "Aducción horizontal",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Apertura de pecho"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor"
+      ],
+      "supportingMuscles": [
+        "Deltoides anterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Anclaje posterior, dos agarres con #0/#1 en configuración simétrica o banda única adecuada",
-    "mainEquipment": "Banda",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -774,14 +746,6 @@
         "kind": "anchor",
         "id": "anclaje-lateral"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor"
-    ],
-    "secondaryMuscles": [
-      "Deltoides anterior",
-      "Core anterior"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/aperturas-banda-anclada.webp",
@@ -801,19 +765,24 @@
     "sourceId": "E16",
     "name": "Fly bajo-a-alto con banda",
     "shortName": "Fly bajo-alto",
-    "category": "Empuje",
-    "pattern": "Pecho diagonal",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Apertura de pecho"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor"
+      ],
+      "supportingMuscles": [
+        "Deltoides anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Anclaje bajo detrás",
-    "mainEquipment": "Banda baja",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -823,13 +792,6 @@
         "kind": "anchor",
         "id": "anclaje-bajo-variable"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor"
-    ],
-    "secondaryMuscles": [
-      "Deltoides anterior"
     ],
     "dose": "2–3 × 10–20",
     "image": "public/exercise-images/fly-banda-bajo-alto.webp",
@@ -850,19 +812,25 @@
     "sourceId": "E17",
     "name": "Fly alto-a-bajo con banda",
     "shortName": "Fly alto-bajo",
-    "category": "Empuje",
-    "pattern": "Pecho diagonal",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Apertura de pecho"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor"
+      ],
+      "supportingMuscles": [
+        "Serrato anterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Anclaje alto",
-    "mainEquipment": "Banda alta",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -872,14 +840,6 @@
         "kind": "anchor",
         "id": "anclaje-alto"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor"
-    ],
-    "secondaryMuscles": [
-      "Serrato anterior",
-      "Core anterior"
     ],
     "dose": "2–3 × 10–20",
     "image": "public/exercise-images/fly-banda-alto-bajo.webp",
@@ -900,19 +860,25 @@
     "sourceId": "E18",
     "name": "Pressdown de tríceps",
     "shortName": "Pressdown",
-    "category": "Empuje",
-    "pattern": "Tríceps",
-    "muscle": "Brazos",
-    "muscleGroups": [
-      "Brazos"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Brazos",
+      "patterns": [
+        "Extensión de codo"
+      ],
+      "primaryMuscles": [
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Trapecio",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Banda en anclaje alto, agarre(s)",
-    "mainEquipment": "Banda alta",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -926,14 +892,6 @@
         "kind": "anchor",
         "id": "anclaje-alto"
       }
-    ],
-    "primaryMuscle": "Tríceps braquial",
-    "primaryMuscles": [
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Trapecio",
-      "Core anterior"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/extension-triceps-banda-alta.webp",
@@ -953,21 +911,26 @@
     "sourceId": "E19",
     "name": "Extensión de tríceps por encima de la cabeza",
     "shortName": "Extensión overhead",
-    "category": "Empuje",
-    "pattern": "Tríceps",
-    "muscle": "Brazos",
-    "muscleGroups": [
-      "Brazos"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
-    "equipment": "Una mancuerna/KB o banda baja",
-    "mainEquipment": "DB/KB/banda",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa",
-      "Bandas y agarres"
-    ],
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Brazos",
+      "patterns": [
+        "Extensión de codo"
+      ],
+      "primaryMuscles": [
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa",
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
+    "equipment": "Una mancuerna/pesa rusa o banda baja",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -982,45 +945,44 @@
         "id": "rogue-monster-bands"
       }
     ],
-    "primaryMuscle": "Tríceps braquial",
-    "primaryMuscles": [
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Core anterior"
-    ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/extension-triceps-cabeza.webp",
-    "cue": "Con DB pesada, preferible sentado a 80–85°.",
+    "cue": "Con mancuernas pesada, preferible sentado a 80–85°.",
     "steps": [
       "Carga detrás de cabeza.",
       "Mantener codos orientados al frente.",
       "Extender sin abrirlos excesivamente.",
       "Descender hasta rango cómodo."
     ],
-    "safety": "Con DB pesada, preferible sentado a 80–85°. Regresión: banda. 2–4 × 8–15.",
+    "safety": "Con mancuernas pesada, preferible sentado a 80–85°. Regresión: banda. 2–4 × 8–15.",
     "documentedExecution": "1. Carga detrás de cabeza. 2. Mantener codos orientados al frente. 3. Extender sin abrirlos excesivamente. 4. Descender hasta rango cómodo.",
-    "documentedTechnique": "Con DB pesada, preferible sentado a 80–85°. Regresión: banda. 2–4 × 8–15."
+    "documentedTechnique": "Con mancuernas pesada, preferible sentado a 80–85°. Regresión: banda. 2–4 × 8–15."
   },
   {
     "id": "e20",
     "sourceId": "E20",
     "name": "Patada de tríceps",
     "shortName": "Kickback",
-    "category": "Empuje",
-    "pattern": "Tríceps",
-    "muscle": "Brazos",
-    "muscleGroups": [
-      "Brazos"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Brazos",
+      "patterns": [
+        "Extensión de codo"
+      ],
+      "primaryMuscles": [
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Deltoides posterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "SmartBell; apoyo opcional en banco",
-    "mainEquipment": "DB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1030,14 +992,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Tríceps braquial",
-    "primaryMuscles": [
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Deltoides posterior",
-      "Core anterior"
     ],
     "dose": "2–3 × 10–20",
     "image": "public/exercise-images/patada-triceps-apoyada.webp",
@@ -1058,21 +1012,27 @@
     "sourceId": "E21",
     "name": "Flexión inclinada con manos en banco",
     "shortName": "Flexión inclinada",
-    "category": "Empuje",
-    "pattern": "Empuje",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho",
-      "Brazos"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Empuje horizontal"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Deltoides anterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Banco ajustable",
+        "Peso corporal"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Banco 0°, peso corporal",
-    "mainEquipment": "Banco",
-    "equipmentTags": [
-      "Banco y accesorios",
-      "Sin equipamiento"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1082,15 +1042,6 @@
         "kind": "support",
         "id": "suelo"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Deltoides anterior",
-      "Core anterior"
     ],
     "dose": "2–4 × 6–20",
     "image": "public/exercise-images/flexion-inclinada-banco.webp",
@@ -1110,22 +1061,27 @@
     "sourceId": "E22",
     "name": "Flexión con pies elevados en banco",
     "shortName": "Flexión pies elevados",
-    "category": "Empuje",
-    "pattern": "Empuje/core",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho",
-      "Hombros",
-      "Brazos"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Empuje horizontal"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor",
+        "Deltoides anterior",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Core anterior"
+      ],
+      "equipment": [
+        "Banco ajustable",
+        "Peso corporal"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Pies sobre banco 0°, manos en suelo",
-    "mainEquipment": "Banco",
-    "equipmentTags": [
-      "Banco y accesorios",
-      "Sin equipamiento"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1135,15 +1091,6 @@
         "kind": "support",
         "id": "suelo"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor",
-      "Deltoides anterior",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Core anterior"
     ],
     "dose": "2–4 × 6–15",
     "image": "public/exercise-images/flexion-pies-elevados-banco.webp",
@@ -1164,33 +1111,30 @@
     "sourceId": "E23",
     "name": "Flexión resistida con banda",
     "shortName": "Flexión con banda",
-    "category": "Empuje",
-    "pattern": "Empuje variable",
-    "muscle": "Pecho",
-    "muscleGroups": [
-      "Pecho",
-      "Brazos"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Pecho",
+      "patterns": [
+        "Empuje horizontal"
+      ],
+      "primaryMuscles": [
+        "Pectoral mayor",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Monster Band alrededor de espalda y bajo manos",
-    "mainEquipment": "Monster Band",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "rogue-monster-bands"
       }
-    ],
-    "primaryMuscle": "Pectoral mayor",
-    "primaryMuscles": [
-      "Pectoral mayor",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Core anterior"
     ],
     "dose": "2–4 × 5–15",
     "image": "public/exercise-images/flexion-resistida-banda.webp",
@@ -1211,20 +1155,25 @@
     "sourceId": "E24",
     "name": "Press vertical con barra larga y banda",
     "shortName": "Press vertical barra-band",
-    "category": "Empuje",
-    "pattern": "Empuje vertical",
-    "muscle": "Hombros",
-    "muscleGroups": [
-      "Hombros",
-      "Brazos"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Empuje",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Empuje vertical"
+      ],
+      "primaryMuscles": [
+        "Deltoides anterior",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Barra telescópica + banda bajo pies/anclaje bajo",
-    "mainEquipment": "Barra larga + banda",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1238,14 +1187,6 @@
         "kind": "anchor",
         "id": "anclaje-bajo-variable"
       }
-    ],
-    "primaryMuscle": "Deltoides anterior",
-    "primaryMuscles": [
-      "Deltoides anterior",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Core anterior"
     ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/press-hombros-banda.webp",
@@ -1266,19 +1207,31 @@
     "sourceId": "E25",
     "name": "Dominada pronada",
     "shortName": "Dominada pronada",
-    "category": "Tirón",
-    "pattern": "Tirón vertical",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda"
-    ],
-    "difficulty": "Intermedio–avanzado",
-    "documentedLevel": "Intermedio–avanzado",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón vertical"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Redondo mayor"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial",
+        "Braquial",
+        "Romboides",
+        "Trapecio",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Barra de dominadas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio–avanzado"
+    },
     "equipment": "Chin-Up, agarre ancho/regular",
-    "mainEquipment": "Chin-Up",
-    "equipmentTags": [
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1288,19 +1241,6 @@
         "kind": "bench-accessory",
         "id": "chin-up-attachment"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Redondo mayor"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial",
-      "Braquial",
-      "Romboides",
-      "Trapecio",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "3–5 × 3–10",
     "image": "public/exercise-images/dominada-pronada.webp",
@@ -1321,20 +1261,29 @@
     "sourceId": "E26",
     "name": "Dominada neutra",
     "shortName": "Dominada neutra",
-    "category": "Tirón",
-    "pattern": "Tirón vertical",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda",
-      "Brazos"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón vertical"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Bíceps braquial"
+      ],
+      "supportingMuscles": [
+        "Braquial",
+        "Antebrazos",
+        "Romboides",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Barra de dominadas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Chin-Up, asas neutras",
-    "mainEquipment": "Chin-Up",
-    "equipmentTags": [
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1344,17 +1293,6 @@
         "kind": "bench-accessory",
         "id": "chin-up-attachment"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Bíceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Braquial",
-      "Antebrazos",
-      "Romboides",
-      "Core anterior"
     ],
     "dose": "3–5 × 3–10",
     "image": "public/exercise-images/dominada-neutra.webp",
@@ -1371,20 +1309,27 @@
     "sourceId": "E27",
     "name": "Dominada escapular",
     "shortName": "Dominada escapular",
-    "category": "Tirón",
-    "pattern": "Control escapular",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda",
-      "Hombros"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Control escapular"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Trapecio"
+      ],
+      "supportingMuscles": [
+        "Serrato anterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Barra de dominadas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Chin-Up",
-    "mainEquipment": "Chin-Up",
-    "equipmentTags": [
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1395,47 +1340,46 @@
         "id": "chin-up-attachment"
       }
     ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Trapecio"
-    ],
-    "secondaryMuscles": [
-      "Serrato anterior",
-      "Core anterior"
-    ],
     "dose": "2–4 × 5–12",
     "image": "public/exercise-images/dominada-escapular.webp",
-    "cue": "ROM pequeño; no balancear.",
+    "cue": "recorrido pequeño; no balancear.",
     "steps": [
       "Colgar con codos rectos.",
       "Sin flexionarlos, separar hombros de orejas mediante depresión escapular.",
       "Elevar ligeramente el cuerpo.",
       "Volver lentamente."
     ],
-    "safety": "ROM pequeño; no balancear. Excelente preparación para E25–26. 2–4 × 5–12.",
+    "safety": "recorrido pequeño; no balancear. Excelente preparación para E25–26. 2–4 × 5–12.",
     "documentedExecution": "1. Colgar con codos rectos. 2. Sin flexionarlos, separar hombros de orejas mediante depresión escapular. 3. Elevar ligeramente el cuerpo. 4. Volver lentamente.",
-    "documentedTechnique": "ROM pequeño; no balancear. Excelente preparación para E25–26. 2–4 × 5–12."
+    "documentedTechnique": "recorrido pequeño; no balancear. Excelente preparación para E25–26. 2–4 × 5–12."
   },
   {
     "id": "e28",
     "sourceId": "E28",
     "name": "Remo unilateral con mancuerna",
-    "shortName": "Remo unilateral DB",
-    "category": "Tirón",
-    "pattern": "Tirón horizontal",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "shortName": "Remo unilateral mancuernas",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón horizontal"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Romboides"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial",
+        "Deltoides posterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "SmartBell + banco 0°",
-    "mainEquipment": "DB + banco",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1445,16 +1389,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Romboides"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial",
-      "Deltoides posterior",
-      "Core anterior"
     ],
     "dose": "2–4 × 6–15/lado",
     "image": "public/exercise-images/remo-unilateral-apoyado.webp",
@@ -1474,36 +1408,34 @@
     "id": "e29",
     "sourceId": "E29",
     "name": "Remo inclinado bilateral",
-    "shortName": "Remo bilateral DB",
-    "category": "Tirón",
-    "pattern": "Tirón + hinge",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "shortName": "Remo bilateral mancuernas",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón horizontal"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Romboides"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial",
+        "Deltoides posterior",
+        "Erectores espinales",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Dos SmartBells",
-    "mainEquipment": "2 DB",
-    "equipmentTags": [
-      "Mancuernas"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "smartbells-pro"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Romboides"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial",
-      "Deltoides posterior",
-      "Erectores espinales",
-      "Core anterior"
     ],
     "dose": "2–4 × 6–12",
     "image": "public/exercise-images/remo-inclinado-dos-mancuernas.webp",
@@ -1524,21 +1456,28 @@
     "sourceId": "E30",
     "name": "Remo con pecho apoyado",
     "shortName": "Remo pecho apoyado",
-    "category": "Tirón",
-    "pattern": "Tirón horizontal",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda",
-      "Hombros"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón horizontal"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Romboides",
+        "Trapecio"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial",
+        "Deltoides posterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Banco 30–40°, SmartBells",
-    "mainEquipment": "DB + 30–40°",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1548,16 +1487,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Romboides",
-      "Trapecio"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial",
-      "Deltoides posterior"
     ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/remo-pecho-apoyado.webp",
@@ -1576,23 +1505,29 @@
   {
     "id": "e31",
     "sourceId": "E31",
-    "name": "Remo alto apoyado para deltoides posterior",
+    "name": "Remo alto apoyado / rear-delt row",
     "shortName": "Remo alto apoyado",
-    "category": "Tirón",
-    "pattern": "Espalda posterior",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Hombros",
-      "Espalda"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Tirón horizontal"
+      ],
+      "primaryMuscles": [
+        "Deltoides posterior",
+        "Romboides",
+        "Trapecio"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banco 30–40°",
-    "mainEquipment": "DB + banco",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1602,15 +1537,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Deltoides posterior",
-    "primaryMuscles": [
-      "Deltoides posterior",
-      "Romboides",
-      "Trapecio"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial"
     ],
     "dose": "2–4 × 10–15",
     "image": "public/exercise-images/remo-alto-apoyado.webp",
@@ -1629,23 +1555,28 @@
   {
     "id": "e32",
     "sourceId": "E32",
-    "name": "Apertura inversa inclinada",
+    "name": "Reverse fly inclinado",
     "shortName": "Reverse fly",
-    "category": "Tirón",
-    "pattern": "Deltoides posterior",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Hombros",
-      "Espalda"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Tirón horizontal"
+      ],
+      "primaryMuscles": [
+        "Deltoides posterior",
+        "Romboides"
+      ],
+      "supportingMuscles": [
+        "Trapecio"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Banco 30–40°, SmartBells",
-    "mainEquipment": "DB + banco",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1655,14 +1586,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Deltoides posterior",
-    "primaryMuscles": [
-      "Deltoides posterior",
-      "Romboides"
-    ],
-    "secondaryMuscles": [
-      "Trapecio"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/pajaros-pecho-apoyado.webp",
@@ -1683,19 +1606,27 @@
     "sourceId": "E33",
     "name": "Remo con bandas y agarres",
     "shortName": "Remo banda agarres",
-    "category": "Tirón",
-    "pattern": "Tirón horizontal",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón horizontal"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Romboides"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial",
+        "Deltoides posterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Anclaje lateral frontal, agarres",
-    "mainEquipment": "Banda",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1709,16 +1640,6 @@
         "kind": "anchor",
         "id": "anclaje-lateral"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Romboides"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial",
-      "Deltoides posterior",
-      "Core anterior"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/remo-banda-anclaje-bajo.webp",
@@ -1739,20 +1660,27 @@
     "sourceId": "E34",
     "name": "Remo ancho con barra larga",
     "shortName": "Remo ancho barra-band",
-    "category": "Tirón",
-    "pattern": "Tirón horizontal",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda",
-      "Hombros"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón horizontal"
+      ],
+      "primaryMuscles": [
+        "Romboides",
+        "Trapecio",
+        "Deltoides posterior"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Barra larga + banda, anclaje frontal",
-    "mainEquipment": "Barra larga + banda",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1762,16 +1690,6 @@
         "kind": "band-accessory",
         "id": "barra-larga"
       }
-    ],
-    "primaryMuscle": "Romboides",
-    "primaryMuscles": [
-      "Romboides",
-      "Trapecio",
-      "Deltoides posterior"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial",
-      "Core anterior"
     ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/remo-ancho-barra-banda.webp",
@@ -1792,35 +1710,32 @@
     "sourceId": "E35",
     "name": "Remo alto con banda",
     "shortName": "Remo alto banda",
-    "category": "Tirón",
-    "pattern": "Espalda alta",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda",
-      "Hombros"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón horizontal"
+      ],
+      "primaryMuscles": [
+        "Trapecio",
+        "Romboides",
+        "Deltoides posterior"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Anclaje frente a altura alta del tórax",
-    "mainEquipment": "Banda",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "rogue-monster-bands"
       }
-    ],
-    "primaryMuscle": "Trapecio",
-    "primaryMuscles": [
-      "Trapecio",
-      "Romboides",
-      "Deltoides posterior"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial",
-      "Core anterior"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/remo-alto-banda.webp",
@@ -1840,20 +1755,28 @@
     "sourceId": "E36",
     "name": "Face pull",
     "shortName": "Face pull",
-    "category": "Tirón",
-    "pattern": "Espalda/hombro posterior",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Hombros",
-      "Espalda"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Hombros",
+      "patterns": [
+        "Tirón horizontal"
+      ],
+      "primaryMuscles": [
+        "Deltoides posterior",
+        "Romboides",
+        "Trapecio"
+      ],
+      "supportingMuscles": [
+        "Manguito rotador",
+        "Bíceps braquial",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Anclaje alto + dos agarres",
-    "mainEquipment": "Banda alta",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1867,17 +1790,6 @@
         "kind": "anchor",
         "id": "anclaje-alto"
       }
-    ],
-    "primaryMuscle": "Deltoides posterior",
-    "primaryMuscles": [
-      "Deltoides posterior",
-      "Romboides",
-      "Trapecio"
-    ],
-    "secondaryMuscles": [
-      "Manguito rotador",
-      "Bíceps braquial",
-      "Core anterior"
     ],
     "dose": "2–4 × 12–20",
     "image": "public/exercise-images/face-pull-banda.webp",
@@ -1897,19 +1809,26 @@
     "sourceId": "E37",
     "name": "Pulldown de brazos rectos",
     "shortName": "Straight-arm pulldown",
-    "category": "Tirón",
-    "pattern": "Tirón de hombro",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Extensión de hombro"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho"
+      ],
+      "supportingMuscles": [
+        "Pectoral mayor",
+        "Tríceps braquial",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Anclaje alto",
-    "mainEquipment": "Banda alta",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1919,15 +1838,6 @@
         "kind": "anchor",
         "id": "anclaje-alto"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho"
-    ],
-    "secondaryMuscles": [
-      "Pectoral mayor",
-      "Tríceps braquial",
-      "Core anterior"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/jalon-brazos-rectos-banda.webp",
@@ -1948,19 +1858,26 @@
     "sourceId": "E38",
     "name": "Jalón al pecho con banda",
     "shortName": "Jalón al pecho",
-    "category": "Tirón",
-    "pattern": "Tirón vertical",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón vertical"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Romboides"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Anclaje alto independiente; agarres/barra",
-    "mainEquipment": "Banda alta",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -1974,15 +1891,6 @@
         "kind": "anchor",
         "id": "anclaje-alto"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Romboides"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial",
-      "Core anterior"
     ],
     "dose": "2–4 × 8–20",
     "image": "public/exercise-images/jalon-sentado-banda-barra.webp",
@@ -2003,19 +1911,26 @@
     "sourceId": "E39",
     "name": "Jalón unilateral con banda",
     "shortName": "Jalón unilateral",
-    "category": "Tirón",
-    "pattern": "Tirón vertical",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Tirón vertical"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho"
+      ],
+      "supportingMuscles": [
+        "Bíceps braquial",
+        "Romboides",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Anclaje alto + un agarre",
-    "mainEquipment": "Banda alta",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2029,15 +1944,6 @@
         "kind": "anchor",
         "id": "anclaje-alto"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho"
-    ],
-    "secondaryMuscles": [
-      "Bíceps braquial",
-      "Romboides",
-      "Core anterior"
     ],
     "dose": "2–4 × 8–15/lado",
     "image": "public/exercise-images/jalon-unilateral-banda-agarre.webp",
@@ -2058,21 +1964,26 @@
     "sourceId": "E40",
     "name": "Encogimiento de hombros",
     "shortName": "Shrug",
-    "category": "Tirón",
-    "pattern": "Elevación escapular",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Espalda",
-      "Hombros"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Espalda",
+      "patterns": [
+        "Control escapular"
+      ],
+      "primaryMuscles": [
+        "Trapecio"
+      ],
+      "supportingMuscles": [
+        "Antebrazos",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Dos SmartBells o barra larga+banda bajo pies",
-    "mainEquipment": "DB/banda",
-    "equipmentTags": [
-      "Mancuernas",
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2086,14 +1997,6 @@
         "kind": "band-accessory",
         "id": "barra-larga"
       }
-    ],
-    "primaryMuscle": "Trapecio",
-    "primaryMuscles": [
-      "Trapecio"
-    ],
-    "secondaryMuscles": [
-      "Antebrazos",
-      "Core anterior"
     ],
     "dose": "2–4 × 8–20",
     "image": "public/exercise-images/encogimiento-hombros.webp",
@@ -2113,33 +2016,31 @@
     "sourceId": "E41",
     "name": "Curl supinado",
     "shortName": "Curl supinado",
-    "category": "Tirón",
-    "pattern": "Bíceps",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Brazos"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Brazos",
+      "patterns": [
+        "Flexión de codo"
+      ],
+      "primaryMuscles": [
+        "Bíceps braquial"
+      ],
+      "supportingMuscles": [
+        "Braquial",
+        "Antebrazos",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "SmartBells",
-    "mainEquipment": "DB",
-    "equipmentTags": [
-      "Mancuernas"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "smartbells-pro"
       }
-    ],
-    "primaryMuscle": "Bíceps braquial",
-    "primaryMuscles": [
-      "Bíceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Braquial",
-      "Antebrazos",
-      "Core anterior"
     ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/curl-biceps-alterno.webp",
@@ -2159,34 +2060,32 @@
     "sourceId": "E42",
     "name": "Curl martillo",
     "shortName": "Curl martillo",
-    "category": "Tirón",
-    "pattern": "Braquial/bíceps",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Brazos"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Brazos",
+      "patterns": [
+        "Flexión de codo"
+      ],
+      "primaryMuscles": [
+        "Braquial",
+        "Bíceps braquial"
+      ],
+      "supportingMuscles": [
+        "Braquiorradial",
+        "Antebrazos",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "SmartBells",
-    "mainEquipment": "DB",
-    "equipmentTags": [
-      "Mancuernas"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "smartbells-pro"
       }
-    ],
-    "primaryMuscle": "Braquial",
-    "primaryMuscles": [
-      "Braquial",
-      "Bíceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Braquiorradial",
-      "Antebrazos",
-      "Core anterior"
     ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/curl-martillo.webp",
@@ -2206,20 +2105,26 @@
     "sourceId": "E43",
     "name": "Curl inclinado con mancuernas",
     "shortName": "Curl inclinado",
-    "category": "Tirón",
-    "pattern": "Bíceps",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Brazos"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Brazos",
+      "patterns": [
+        "Flexión de codo"
+      ],
+      "primaryMuscles": [
+        "Bíceps braquial"
+      ],
+      "supportingMuscles": [
+        "Braquial",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banco 40–60°",
-    "mainEquipment": "DB + 40–60°",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2229,14 +2134,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Bíceps braquial",
-    "primaryMuscles": [
-      "Bíceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Braquial",
-      "Antebrazos"
     ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/curl-sentado-inclinado.webp",
@@ -2256,19 +2153,26 @@
     "sourceId": "E44",
     "name": "Curl con banda",
     "shortName": "Curl banda",
-    "category": "Tirón",
-    "pattern": "Bíceps",
-    "muscle": "Espalda",
-    "muscleGroups": [
-      "Brazos"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Tirón",
+      "primaryRegion": "Brazos",
+      "patterns": [
+        "Flexión de codo"
+      ],
+      "primaryMuscles": [
+        "Bíceps braquial"
+      ],
+      "supportingMuscles": [
+        "Braquial",
+        "Antebrazos",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Banda bajo pies + agarres o barra larga",
-    "mainEquipment": "Banda",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2282,15 +2186,6 @@
         "kind": "band-accessory",
         "id": "agarres-individuales"
       }
-    ],
-    "primaryMuscle": "Bíceps braquial",
-    "primaryMuscles": [
-      "Bíceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Braquial",
-      "Antebrazos",
-      "Core anterior"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/curl-banda.webp",
@@ -2309,23 +2204,30 @@
   {
     "id": "e45",
     "sourceId": "E45",
-    "name": "Sentadilla de copa",
+    "name": "Goblet squat",
     "shortName": "Goblet squat",
-    "category": "Piernas",
-    "pattern": "Sentadilla",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Piernas",
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
-    "equipment": "Una SmartBell o KB 4–18 kg",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Piernas",
+      "patterns": [
+        "Sentadilla"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Básico"
+    },
+    "equipment": "Una SmartBell o pesa rusa 4–18 kg",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2336,19 +2238,9 @@
         "id": "pesa-rusa-ajustable"
       }
     ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Core anterior",
-      "Antebrazos"
-    ],
     "dose": "2–4 × 6–15",
     "image": "public/exercise-images/sentadilla-goblet-libre.webp",
-    "cue": "Regresión: peso corporal o 4 kg; progresión: DB hasta 41,5 kg.",
+    "cue": "Regresión: peso corporal o 4 kg; progresión: mancuernas hasta 41,5 kg.",
     "steps": [
       "Sujetar carga frente al pecho.",
       "Pies según anatomía individual.",
@@ -2356,46 +2248,43 @@
       "Mantener pie completo apoyado.",
       "Extender rodillas/cadera para subir."
     ],
-    "safety": "Regresión: peso corporal o 4 kg; progresión: DB hasta 41,5 kg. 2–4 × 6–15. ACE clasifica goblet squat como glúteos/muslos.",
+    "safety": "Regresión: peso corporal o 4 kg; progresión: mancuernas hasta 41,5 kg. 2–4 × 6–15. ACE clasifica goblet squat como glúteos/muslos.",
     "documentedExecution": "1. Sujetar carga frente al pecho. 2. Pies según anatomía individual. 3. Descender flexionando cadera y rodillas. 4. Mantener pie completo apoyado. 5. Extender rodillas/cadera para subir.",
-    "documentedTechnique": "Regresión: peso corporal o 4 kg; progresión: DB hasta 41,5 kg. 2–4 × 6–15. ACE clasifica goblet squat como glúteos/muslos."
+    "documentedTechnique": "Regresión: peso corporal o 4 kg; progresión: mancuernas hasta 41,5 kg. 2–4 × 6–15. ACE clasifica goblet squat como glúteos/muslos."
   },
   {
     "id": "e46",
     "sourceId": "E46",
     "name": "Sentadilla frontal con dos mancuernas",
-    "shortName": "Front squat DB",
-    "category": "Piernas",
-    "pattern": "Sentadilla",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Piernas",
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "shortName": "Front squat mancuernas",
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Piernas",
+      "patterns": [
+        "Sentadilla"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Erectores espinales",
+        "Core anterior",
+        "Deltoides anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Dos SmartBells en rack",
-    "mainEquipment": "2 DB",
-    "equipmentTags": [
-      "Mancuernas"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "smartbells-pro"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Erectores espinales",
-      "Core anterior",
-      "Deltoides anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 5–12",
     "image": "public/exercise-images/sentadilla-frontal-dos-mancuernas.webp",
@@ -2407,29 +2296,36 @@
       "Rodillas siguen dirección de pies.",
       "Subir empujando el suelo."
     ],
-    "safety": "Bilateral: subir un selector aumenta 3 kg totales. 2–4 × 5–12. ACE incluye front squat con DB como ejercicio integrado de tren inferior.",
+    "safety": "Bilateral: subir un selector aumenta 3 kg totales. 2–4 × 5–12. ACE incluye front squat con mancuernas como ejercicio integrado de tren inferior.",
     "documentedExecution": "1. Llevar mancuernas a hombros. 2. Brace. 3. Descender entre caderas manteniendo torso organizado. 4. Rodillas siguen dirección de pies. 5. Subir empujando el suelo.",
-    "documentedTechnique": "Bilateral: subir un selector aumenta 3 kg totales. 2–4 × 5–12. ACE incluye front squat con DB como ejercicio integrado de tren inferior."
+    "documentedTechnique": "Bilateral: subir un selector aumenta 3 kg totales. 2–4 × 5–12. ACE incluye front squat con mancuernas como ejercicio integrado de tren inferior."
   },
   {
     "id": "e47",
     "sourceId": "E47",
     "name": "Sentadilla con banda y barra larga",
     "shortName": "Squat barra-band",
-    "category": "Piernas",
-    "pattern": "Sentadilla variable",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Piernas",
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Piernas",
+      "patterns": [
+        "Sentadilla"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Core anterior",
+        "Deltoides anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banda bajo pies + barra larga en posición frontal/alta cómoda",
-    "mainEquipment": "Banda + barra",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2439,16 +2335,6 @@
         "kind": "band-accessory",
         "id": "barra-larga"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Core anterior",
-      "Deltoides anterior"
     ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/sentadilla-banda-anclada.webp",
@@ -2466,36 +2352,33 @@
   {
     "id": "e48",
     "sourceId": "E48",
-    "name": "Sentadilla a banco",
+    "name": "Sentadilla a banco / sit-to-stand",
     "shortName": "Squat a banco",
-    "category": "Piernas",
-    "pattern": "Sentadilla",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Piernas",
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Piernas",
+      "patterns": [
+        "Sentadilla"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Banco 0°, carga opcional goblet",
-    "mainEquipment": "Banco",
-    "equipmentTags": [
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Core anterior"
     ],
     "dose": "2–4 × 6–15",
     "image": "public/exercise-images/sentadilla-hacia-banco.webp",
@@ -2513,23 +2396,31 @@
   {
     "id": "e49",
     "sourceId": "E49",
-    "name": "Sentadilla dividida estática",
+    "name": "Split squat estático",
     "shortName": "Split squat",
-    "category": "Piernas",
-    "pattern": "Sentadilla unilateral",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Piernas",
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
-    "equipment": "SmartBells o KB",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Piernas",
+      "patterns": [
+        "Zancada"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Aductores",
+        "Isquiotibiales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
+    "equipment": "SmartBells o pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2539,17 +2430,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Aductores",
-      "Isquiotibiales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 6–15/lado",
     "image": "public/exercise-images/split-squat-mancuernas.webp",
@@ -2567,23 +2447,31 @@
   {
     "id": "e50",
     "sourceId": "E50",
-    "name": "Sentadilla búlgara",
+    "name": "Bulgarian split squat",
     "shortName": "Bulgarian split squat",
-    "category": "Piernas",
-    "pattern": "Sentadilla unilateral",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Glúteos e isquios",
-      "Piernas"
-    ],
-    "difficulty": "Intermedio–avanzado",
-    "documentedLevel": "Intermedio–avanzado",
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Zancada"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Cuádriceps"
+      ],
+      "supportingMuscles": [
+        "Aductores",
+        "Isquiotibiales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio–avanzado"
+    },
     "equipment": "Pie trasero apoyado, no de pie, sobre banco 0°; SmartBells",
-    "mainEquipment": "DB + banco",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2593,17 +2481,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Cuádriceps"
-    ],
-    "secondaryMuscles": [
-      "Aductores",
-      "Isquiotibiales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 6–12/lado",
     "image": "public/exercise-images/sentadilla-bulgara-mancuernas.webp",
@@ -2624,21 +2501,28 @@
     "sourceId": "E51",
     "name": "Zancada atrás",
     "shortName": "Zancada atrás",
-    "category": "Piernas",
-    "pattern": "Zancada",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Glúteos e isquios",
-      "Piernas"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
-    "equipment": "SmartBells o KB",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Zancada"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Cuádriceps"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
+    "equipment": "SmartBells o pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2648,16 +2532,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Cuádriceps"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 6–12/lado",
     "image": "public/exercise-images/zancada-atras-apoyo.webp",
@@ -2677,21 +2551,29 @@
     "sourceId": "E52",
     "name": "Zancada adelante",
     "shortName": "Zancada adelante",
-    "category": "Piernas",
-    "pattern": "Zancada",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Piernas",
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
-    "equipment": "SmartBells o KB",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Piernas",
+      "patterns": [
+        "Zancada"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Aductores",
+        "Isquiotibiales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Intermedio"
+    },
+    "equipment": "SmartBells o pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2701,17 +2583,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Aductores",
-      "Isquiotibiales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 6–12/lado",
     "image": "public/exercise-images/zancada-adelante.webp",
@@ -2731,21 +2602,29 @@
     "sourceId": "E53",
     "name": "Zancada lateral",
     "shortName": "Zancada lateral",
-    "category": "Piernas",
-    "pattern": "Plano frontal",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Glúteos e isquios",
-      "Piernas"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
-    "equipment": "SmartBell/KB",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Zancada"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Cuádriceps",
+        "Aductores"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Intermedio"
+    },
+    "equipment": "SmartBell/pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2755,17 +2634,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Cuádriceps",
-      "Aductores"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 6–12/lado",
     "image": "public/exercise-images/zancada-lateral.webp",
@@ -2776,29 +2644,36 @@
       "Mantener otra pierna más extendida.",
       "Empujar suelo para volver."
     ],
-    "safety": "No forzar profundidad si falta movilidad de cadera/aductores. ACE incluye lateral lunge con DB. 2–4 × 6–12/lado.",
+    "safety": "No forzar profundidad si falta movilidad de cadera/aductores. ACE incluye lateral lunge con mancuernas. 2–4 × 6–12/lado.",
     "documentedExecution": "1. Paso amplio lateral. 2. Llevar cadera atrás sobre pierna que flexiona. 3. Mantener otra pierna más extendida. 4. Empujar suelo para volver.",
-    "documentedTechnique": "No forzar profundidad si falta movilidad de cadera/aductores. ACE incluye lateral lunge con DB. 2–4 × 6–12/lado."
+    "documentedTechnique": "No forzar profundidad si falta movilidad de cadera/aductores. ACE incluye lateral lunge con mancuernas. 2–4 × 6–12/lado."
   },
   {
     "id": "e54",
     "sourceId": "E54",
     "name": "Elevación bilateral de talones",
     "shortName": "Gemelo bilateral",
-    "category": "Piernas",
-    "pattern": "Flexión plantar",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Piernas"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
-    "equipment": "SmartBells/KB",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Piernas",
+      "patterns": [
+        "Flexión plantar"
+      ],
+      "primaryMuscles": [
+        "Gemelos",
+        "Sóleo"
+      ],
+      "supportingMuscles": [
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Básico"
+    },
+    "equipment": "SmartBells/pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2809,47 +2684,47 @@
         "id": "pesa-rusa-ajustable"
       }
     ],
-    "primaryMuscle": "Gemelos",
-    "primaryMuscles": [
-      "Gemelos",
-      "Sóleo"
-    ],
-    "secondaryMuscles": [
-      "Core anterior",
-      "Antebrazos"
-    ],
     "dose": "2–5 × 10–25",
     "image": "public/exercise-images/elevacion-gemelos-pie.webp",
-    "cue": "Sin plataforma disponible, ROM termina en el suelo; no improvisar escalón con banco.",
+    "cue": "Sin plataforma disponible, recorrido termina en el suelo; no improvisar escalón con banco.",
     "steps": [
       "Pies separados cómodamente.",
       "Elevar talones sobre metatarsos.",
       "Pausar arriba.",
       "Descender hasta suelo."
     ],
-    "safety": "Sin plataforma disponible, ROM termina en el suelo; no improvisar escalón con banco. 2–5 × 10–25.",
+    "safety": "Sin plataforma disponible, recorrido termina en el suelo; no improvisar escalón con banco. 2–5 × 10–25.",
     "documentedExecution": "1. Pies separados cómodamente. 2. Elevar talones sobre metatarsos. 3. Pausar arriba. 4. Descender hasta suelo.",
-    "documentedTechnique": "Sin plataforma disponible, ROM termina en el suelo; no improvisar escalón con banco. 2–5 × 10–25."
+    "documentedTechnique": "Sin plataforma disponible, recorrido termina en el suelo; no improvisar escalón con banco. 2–5 × 10–25."
   },
   {
     "id": "e55",
     "sourceId": "E55",
     "name": "Elevación unilateral de talón",
     "shortName": "Gemelo unilateral",
-    "category": "Piernas",
-    "pattern": "Flexión plantar/estabilidad",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Piernas"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
-    "equipment": "Una DB/KB y apoyo ligero estable",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Piernas",
+      "primaryRegion": "Piernas",
+      "patterns": [
+        "Flexión plantar",
+        "Estabilidad unilateral"
+      ],
+      "primaryMuscles": [
+        "Gemelos",
+        "Sóleo"
+      ],
+      "supportingMuscles": [
+        "Glúteo medio",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Intermedio"
+    },
+    "equipment": "Una mancuerna o pesa rusa y apoyo ligero estable",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -2859,16 +2734,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Gemelos",
-    "primaryMuscles": [
-      "Gemelos",
-      "Sóleo"
-    ],
-    "secondaryMuscles": [
-      "Glúteo medio",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 8–20/lado",
     "image": "public/exercise-images/elevacion-unilateral-talon.webp",
@@ -2888,38 +2753,35 @@
     "id": "e56",
     "sourceId": "E56",
     "name": "Peso muerto con mancuernas",
-    "shortName": "Peso muerto DB",
-    "category": "Cadena posterior",
-    "pattern": "Hinge/sentadilla",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios",
-      "Piernas"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "shortName": "Peso muerto mancuernas",
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Bisagra de cadera"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Cuádriceps",
+        "Isquiotibiales"
+      ],
+      "supportingMuscles": [
+        "Erectores espinales",
+        "Dorsal ancho",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Dos SmartBells",
-    "mainEquipment": "2 DB",
-    "equipmentTags": [
-      "Mancuernas"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "smartbells-pro"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Cuádriceps",
-      "Isquiotibiales"
-    ],
-    "secondaryMuscles": [
-      "Erectores espinales",
-      "Dorsal ancho",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 5–12",
     "image": "public/exercise-images/peso-muerto-mancuernas.webp",
@@ -2939,35 +2801,33 @@
     "id": "e57",
     "sourceId": "E57",
     "name": "Peso muerto rumano",
-    "shortName": "RDL DB",
-    "category": "Cadena posterior",
-    "pattern": "Hip hinge",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "shortName": "peso muerto rumano mancuernas",
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Bisagra de cadera"
+      ],
+      "primaryMuscles": [
+        "Isquiotibiales",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Erectores espinales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Dos SmartBells",
-    "mainEquipment": "2 DB",
-    "equipmentTags": [
-      "Mancuernas"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "smartbells-pro"
       }
-    ],
-    "primaryMuscle": "Isquiotibiales",
-    "primaryMuscles": [
-      "Isquiotibiales",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Erectores espinales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 6–12",
     "image": "public/exercise-images/peso-muerto-rumano-dos-mancuernas.webp",
@@ -2986,37 +2846,36 @@
   {
     "id": "e58",
     "sourceId": "E58",
-    "name": "RDL a una pierna",
-    "shortName": "RDL unilateral",
-    "category": "Cadena posterior",
-    "pattern": "Hinge/estabilidad",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Intermedio–avanzado",
-    "documentedLevel": "Intermedio–avanzado",
+    "name": "peso muerto rumano a una pierna",
+    "shortName": "peso muerto rumano unilateral",
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Bisagra de cadera",
+        "Estabilidad unilateral"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Isquiotibiales"
+      ],
+      "supportingMuscles": [
+        "Glúteo medio",
+        "Erectores espinales",
+        "Oblicuos",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas"
+      ],
+      "difficulty": "Intermedio–avanzado"
+    },
     "equipment": "Una o dos SmartBells",
-    "mainEquipment": "DB",
-    "equipmentTags": [
-      "Mancuernas"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "smartbells-pro"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Isquiotibiales"
-    ],
-    "secondaryMuscles": [
-      "Glúteo medio",
-      "Erectores espinales",
-      "Oblicuos",
-      "Antebrazos"
     ],
     "dose": "2–4 × 6–12/lado",
     "image": "public/exercise-images/peso-muerto-una-pierna-apoyo.webp",
@@ -3028,30 +2887,39 @@
       "Alcanzar profundidad controlable.",
       "Volver extendiendo cadera."
     ],
-    "safety": "Carga contralateral aumenta demanda anti-rotatoria. Estudios con DB confirman cambios en activación de tronco/cadera según posición de la carga. 2–4 × 6–12/lado.",
+    "safety": "Carga contralateral aumenta demanda anti-rotatoria. Estudios con mancuernas confirman cambios en activación de tronco/cadera según posición de la carga. 2–4 × 6–12/lado.",
     "documentedExecution": "1. Peso sobre una pierna. 2. Llevar pierna libre atrás mientras cadera se pliega. 3. Mantener pelvis casi cuadrada. 4. Alcanzar profundidad controlable. 5. Volver extendiendo cadera.",
-    "documentedTechnique": "Carga contralateral aumenta demanda anti-rotatoria. Estudios con DB confirman cambios en activación de tronco/cadera según posición de la carga. 2–4 × 6–12/lado."
+    "documentedTechnique": "Carga contralateral aumenta demanda anti-rotatoria. Estudios con mancuernas confirman cambios en activación de tronco/cadera según posición de la carga. 2–4 × 6–12/lado."
   },
   {
     "id": "e59",
     "sourceId": "E59",
-    "name": "Peso muerto sumo con una pesa rusa o una mancuerna",
+    "name": "Peso muerto sumo con pesa rusa o una mancuerna",
     "shortName": "Peso muerto sumo",
-    "category": "Cadena posterior",
-    "pattern": "Hinge híbrido",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios",
-      "Piernas"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
-    "equipment": "Una KB o DB entre piernas",
-    "mainEquipment": "KB/DB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Bisagra de cadera"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Aductores",
+        "Cuádriceps"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Erectores espinales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Básico"
+    },
+    "equipment": "Una pesa rusa o mancuernas entre piernas",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3061,18 +2929,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Aductores",
-      "Cuádriceps"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Erectores espinales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 6–15",
     "image": "public/exercise-images/peso-muerto-pesa-rusa.webp",
@@ -3084,28 +2940,36 @@
       "Agarrar.",
       "Extender cadera/rodillas."
     ],
-    "safety": "No forzar apertura extrema. KB de 18 kg puede quedarse corta para usuarios fuertes; usar SmartBell hasta 41,5 kg. 2–4 × 6–15.",
+    "safety": "No forzar apertura extrema. pesa rusa de 18 kg puede quedarse corta para usuarios fuertes; usar SmartBell hasta 41,5 kg. 2–4 × 6–15.",
     "documentedExecution": "1. Postura más ancha y puntas cómodamente abiertas. 2. Carga centrada. 3. Bajar manteniendo rodillas alineadas. 4. Agarrar. 5. Extender cadera/rodillas.",
-    "documentedTechnique": "No forzar apertura extrema. KB de 18 kg puede quedarse corta para usuarios fuertes; usar SmartBell hasta 41,5 kg. 2–4 × 6–15."
+    "documentedTechnique": "No forzar apertura extrema. pesa rusa de 18 kg puede quedarse corta para usuarios fuertes; usar SmartBell hasta 41,5 kg. 2–4 × 6–15."
   },
   {
     "id": "e60",
     "sourceId": "E60",
-    "name": "RDL con banda y barra larga",
-    "shortName": "RDL barra-band",
-    "category": "Cadena posterior",
-    "pattern": "Hinge variable",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "name": "peso muerto rumano con banda y barra larga",
+    "shortName": "peso muerto rumano barra-band",
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Bisagra de cadera"
+      ],
+      "primaryMuscles": [
+        "Isquiotibiales",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Erectores espinales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banda bajo pies + barra larga",
-    "mainEquipment": "Banda + barra",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3115,16 +2979,6 @@
         "kind": "band-accessory",
         "id": "barra-larga"
       }
-    ],
-    "primaryMuscle": "Isquiotibiales",
-    "primaryMuscles": [
-      "Isquiotibiales",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Erectores espinales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/peso-muerto-banda-barra.webp",
@@ -3145,33 +2999,31 @@
     "sourceId": "E61",
     "name": "Good morning con banda",
     "shortName": "Good morning banda",
-    "category": "Cadena posterior",
-    "pattern": "Hinge",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Bisagra de cadera"
+      ],
+      "primaryMuscles": [
+        "Isquiotibiales",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Erectores espinales",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banda bajo pies y distribuida sobre hombros sin contactar cuello, o barra-band si montaje seguro",
-    "mainEquipment": "Banda",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "rogue-monster-bands"
       }
-    ],
-    "primaryMuscle": "Isquiotibiales",
-    "primaryMuscles": [
-      "Isquiotibiales",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Erectores espinales",
-      "Core anterior"
     ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/good-morning-banda.webp",
@@ -3190,21 +3042,28 @@
   {
     "id": "e62",
     "sourceId": "E62",
-    "name": "Extensión de cadera con banda",
+    "name": "Pull-through con banda",
     "shortName": "Pull-through",
-    "category": "Cadena posterior",
-    "pattern": "Hinge",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Bisagra de cadera"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Isquiotibiales"
+      ],
+      "supportingMuscles": [
+        "Erectores espinales",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Anclaje bajo detrás + banda/agarre",
-    "mainEquipment": "Banda baja",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3218,15 +3077,6 @@
         "kind": "anchor",
         "id": "anclaje-bajo-variable"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Isquiotibiales"
-    ],
-    "secondaryMuscles": [
-      "Erectores espinales",
-      "Core anterior"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/pull-through-banda.webp",
@@ -3247,21 +3097,28 @@
     "sourceId": "E63",
     "name": "Hip thrust con banco",
     "shortName": "Hip thrust",
-    "category": "Cadena posterior",
-    "pattern": "Extensión cadera",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
-    "equipment": "Parte alta de espalda sobre banco 0°; DB/KB sobre pelvis",
-    "mainEquipment": "Banco + DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa",
-      "Banco y accesorios"
-    ],
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Extensión de cadera"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Cuádriceps",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
+    "equipment": "Parte alta de espalda sobre banco 0°; mancuerna o pesa rusa sobre pelvis",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3276,15 +3133,6 @@
         "id": "super-bench-pro-v2"
       }
     ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Cuádriceps",
-      "Core anterior"
-    ],
     "dose": "2–4 × 8–15",
     "image": "public/exercise-images/hip-thrust-banco.webp",
     "cue": "No hiperextender zona lumbar arriba.",
@@ -3295,30 +3143,37 @@
       "Extender hasta tronco y muslos aproximadamente alineados.",
       "Bajar."
     ],
-    "safety": "No hiperextender zona lumbar arriba. ACE incluye elevado glute bridge con banco/DB. 2–4 × 8–15.",
+    "safety": "No hiperextender zona lumbar arriba. ACE incluye elevado glute bridge con banco/mancuernas. 2–4 × 8–15.",
     "documentedExecution": "1. Apoyar borde inferior de escápulas de forma estable. 2. Pies plantados. 3. Carga acolchada/estable sobre cadera si resulta tolerable. 4. Extender hasta tronco y muslos aproximadamente alineados. 5. Bajar.",
-    "documentedTechnique": "No hiperextender zona lumbar arriba. ACE incluye elevado glute bridge con banco/DB. 2–4 × 8–15."
+    "documentedTechnique": "No hiperextender zona lumbar arriba. ACE incluye elevado glute bridge con banco/mancuernas. 2–4 × 8–15."
   },
   {
     "id": "e64",
     "sourceId": "E64",
     "name": "Hip thrust unilateral",
     "shortName": "Hip thrust unilateral",
-    "category": "Cadena posterior",
-    "pattern": "Extensión unilateral",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
-    "equipment": "Banco, peso corporal o una DB",
-    "mainEquipment": "Banco",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios",
-      "Sin equipamiento"
-    ],
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Extensión de cadera",
+        "Estabilidad unilateral"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Oblicuos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable",
+        "Peso corporal"
+      ],
+      "difficulty": "Intermedio"
+    },
+    "equipment": "Banco, peso corporal o una mancuerna",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3332,14 +3187,6 @@
         "kind": "support",
         "id": "suelo"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Oblicuos"
     ],
     "dose": "2–4 × 8–15/lado",
     "image": "public/exercise-images/hip-thrust-unilateral.webp",
@@ -3360,48 +3207,46 @@
     "sourceId": "E65",
     "name": "Swing a dos manos",
     "shortName": "Swing 2 manos",
-    "category": "Cadena posterior",
-    "pattern": "Hinge/potencia",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
-    "equipment": "Una KB 4–18 kg",
-    "mainEquipment": "KB",
-    "equipmentTags": [
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Potencia de cadera"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Isquiotibiales"
+      ],
+      "supportingMuscles": [
+        "Erectores espinales",
+        "Dorsal ancho",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Pesa rusa"
+      ],
+      "difficulty": "Intermedio"
+    },
+    "equipment": "Una pesa rusa 4–18 kg",
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
     ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Isquiotibiales"
-    ],
-    "secondaryMuscles": [
-      "Erectores espinales",
-      "Dorsal ancho",
-      "Core anterior",
-      "Antebrazos"
-    ],
     "dose": "3–5 × 8–15",
     "image": "public/exercise-images/swing-ruso-pesa-rusa.webp",
     "cue": "La kettlebell debe estar perfectamente bloqueada.",
     "steps": [
-      "KB delante.",
+      "pesa rusa delante.",
       "Hike entre piernas manteniendo columna organizada.",
       "Extender cadera explosivamente.",
-      "Dejar que la KB flote; brazos guían, no elevan.",
+      "Dejar que la pesa rusa flote; brazos guían, no elevan.",
       "Recibirla con caderas atrás."
     ],
     "safety": "La kettlebell debe estar perfectamente bloqueada. No sentadillear cada repetición. 3–5 × 8–15. BRAINGAIN contempla swings.",
-    "documentedExecution": "1. KB delante. 2. Hike entre piernas manteniendo columna organizada. 3. Extender cadera explosivamente. 4. Dejar que la KB flote; brazos guían, no elevan. 5. Recibirla con caderas atrás.",
+    "documentedExecution": "1. pesa rusa delante. 2. Hike entre piernas manteniendo columna organizada. 3. Extender cadera explosivamente. 4. Dejar que la pesa rusa flote; brazos guían, no elevan. 5. Recibirla con caderas atrás.",
     "documentedTechnique": "La kettlebell debe estar perfectamente bloqueada. No sentadillear cada repetición. 3–5 × 8–15. BRAINGAIN contempla swings."
   },
   {
@@ -3409,35 +3254,34 @@
     "sourceId": "E66",
     "name": "Swing a una mano",
     "shortName": "Swing 1 mano",
-    "category": "Cadena posterior",
-    "pattern": "Hinge/anti-rotación",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
-    "equipment": "Una KB",
-    "mainEquipment": "KB",
-    "equipmentTags": [
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Potencia de cadera",
+        "Antirrotación"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Isquiotibiales"
+      ],
+      "supportingMuscles": [
+        "Oblicuos",
+        "Dorsal ancho",
+        "Erectores espinales",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Pesa rusa"
+      ],
+      "difficulty": "Avanzado"
+    },
+    "equipment": "Una pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Isquiotibiales"
-    ],
-    "secondaryMuscles": [
-      "Oblicuos",
-      "Dorsal ancho",
-      "Erectores espinales",
-      "Antebrazos"
     ],
     "dose": "3–5 × 6–12/lado",
     "image": "public/exercise-images/swing-una-mano-pesa-rusa.webp",
@@ -3456,38 +3300,36 @@
   {
     "id": "e67",
     "sourceId": "E67",
-    "name": "Cargada unilateral con pesa rusa",
+    "name": "Clean unilateral con kettlebell",
     "shortName": "Clean unilateral",
-    "category": "Cadena posterior",
-    "pattern": "Hinge/potencia",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Intermedio–avanzado",
-    "documentedLevel": "Intermedio–avanzado",
-    "equipment": "1 KB 4–18 kg",
-    "mainEquipment": "KB",
-    "equipmentTags": [
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Potencia de cadera"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Isquiotibiales"
+      ],
+      "supportingMuscles": [
+        "Trapecio",
+        "Deltoides anterior",
+        "Bíceps braquial",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Pesa rusa"
+      ],
+      "difficulty": "Intermedio–avanzado"
+    },
+    "equipment": "1 pesa rusa 4–18 kg",
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Isquiotibiales"
-    ],
-    "secondaryMuscles": [
-      "Trapecio",
-      "Deltoides anterior",
-      "Bíceps braquial",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "3–5 × 3–8/lado",
     "image": "public/exercise-images/clean-rack-pesa-rusa.webp",
@@ -3495,102 +3337,97 @@
     "steps": [
       "Iniciar con hike o desde suelo según técnica.",
       "Extender cadera.",
-      "Mantener KB cerca del cuerpo.",
+      "Mantener pesa rusa cerca del cuerpo.",
       "«Insertar» mano para que la campana rodee, no golpee, antebrazo.",
       "Acabar en rack."
     ],
     "safety": "Regresión: deadlift + swing. Practicar ligero. 3–5 × 3–8/lado. BRAINGAIN lista clean & press entre usos.",
-    "documentedExecution": "1. Iniciar con hike o desde suelo según técnica. 2. Extender cadera. 3. Mantener KB cerca del cuerpo. 4. «Insertar» mano para que la campana rodee, no golpee, antebrazo. 5. Acabar en rack.",
+    "documentedExecution": "1. Iniciar con hike o desde suelo según técnica. 2. Extender cadera. 3. Mantener pesa rusa cerca del cuerpo. 4. «Insertar» mano para que la campana rodee, no golpee, antebrazo. 5. Acabar en rack.",
     "documentedTechnique": "Regresión: deadlift + swing. Practicar ligero. 3–5 × 3–8/lado. BRAINGAIN lista clean & press entre usos."
   },
   {
     "id": "e68",
     "sourceId": "E68",
-    "name": "Tirón alto con pesa rusa",
+    "name": "High pull con kettlebell",
     "shortName": "High pull",
-    "category": "Cadena posterior",
-    "pattern": "Hinge/tirón explosivo",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios",
-      "Espalda",
-      "Hombros"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
-    "equipment": "1 KB",
-    "mainEquipment": "KB",
-    "equipmentTags": [
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Potencia de cadera",
+        "Tirón vertical"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Isquiotibiales",
+        "Trapecio"
+      ],
+      "supportingMuscles": [
+        "Deltoides posterior",
+        "Bíceps braquial",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Pesa rusa"
+      ],
+      "difficulty": "Avanzado"
+    },
+    "equipment": "1 pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Isquiotibiales",
-      "Trapecio"
-    ],
-    "secondaryMuscles": [
-      "Deltoides posterior",
-      "Bíceps braquial",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "3–5 × 5–10/lado",
     "image": "public/exercise-images/high-pull-pesa-rusa.webp",
     "cue": "No tirar desde una posición lumbar comprometida.",
     "steps": [
       "Iniciar como swing unilateral.",
-      "Al flotar la KB, llevar codo atrás/afuera.",
-      "Mantener la KB cerca.",
+      "Al flotar la pesa rusa, llevar codo atrás/afuera.",
+      "Mantener la pesa rusa cerca.",
       "Reinsertar brazo y volver al backswing."
     ],
     "safety": "No tirar desde una posición lumbar comprometida. 3–5 × 5–10/lado.",
-    "documentedExecution": "1. Iniciar como swing unilateral. 2. Al flotar la KB, llevar codo atrás/afuera. 3. Mantener la KB cerca. 4. Reinsertar brazo y volver al backswing.",
+    "documentedExecution": "1. Iniciar como swing unilateral. 2. Al flotar la pesa rusa, llevar codo atrás/afuera. 3. Mantener la pesa rusa cerca. 4. Reinsertar brazo y volver al backswing.",
     "documentedTechnique": "No tirar desde una posición lumbar comprometida. 3–5 × 5–10/lado."
   },
   {
     "id": "e69",
     "sourceId": "E69",
-    "name": "Arrancada unilateral con pesa rusa",
+    "name": "Snatch unilateral con kettlebell",
     "shortName": "Snatch",
-    "category": "Cadena posterior",
-    "pattern": "Potencia total",
-    "muscle": "Glúteos e isquios",
-    "muscleGroups": [
-      "Glúteos e isquios",
-      "Hombros"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
-    "equipment": "1 KB",
-    "mainEquipment": "KB",
-    "equipmentTags": [
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Cadena posterior",
+      "primaryRegion": "Glúteos e isquios",
+      "patterns": [
+        "Potencia de cadera",
+        "Estabilidad sobre cabeza"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Isquiotibiales",
+        "Deltoides anterior"
+      ],
+      "supportingMuscles": [
+        "Tríceps braquial",
+        "Dorsal ancho",
+        "Erectores espinales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Pesa rusa"
+      ],
+      "difficulty": "Avanzado"
+    },
+    "equipment": "1 pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Isquiotibiales",
-      "Deltoides anterior"
-    ],
-    "secondaryMuscles": [
-      "Tríceps braquial",
-      "Dorsal ancho",
-      "Erectores espinales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "3–5 × 3–8/lado",
     "image": "public/exercise-images/snatch-pesa-rusa.webp",
@@ -3598,12 +3435,12 @@
     "steps": [
       "Generar potencia con cadera.",
       "Mantener la campana cerca.",
-      "Guiar mano alrededor de la KB en lugar de dejarla golpear antebrazo.",
+      "Guiar mano alrededor de la pesa rusa en lugar de dejarla golpear antebrazo.",
       "Bloquear sobre cabeza con tronco estable.",
       "Recibir bajada y retornar al hinge."
     ],
     "safety": "Requiere swing y clean competentes. Despejar techo/entorno. 3–5 × 3–8/lado. BRAINGAIN cita expresamente snatch.",
-    "documentedExecution": "1. Generar potencia con cadera. 2. Mantener la campana cerca. 3. Guiar mano alrededor de la KB en lugar de dejarla golpear antebrazo. 4. Bloquear sobre cabeza con tronco estable. 5. Recibir bajada y retornar al hinge.",
+    "documentedExecution": "1. Generar potencia con cadera. 2. Mantener la campana cerca. 3. Guiar mano alrededor de la pesa rusa en lugar de dejarla golpear antebrazo. 4. Bloquear sobre cabeza con tronco estable. 5. Recibir bajada y retornar al hinge.",
     "documentedTechnique": "Requiere swing y clean competentes. Despejar techo/entorno. 3–5 × 3–8/lado. BRAINGAIN cita expresamente snatch."
   },
   {
@@ -3611,19 +3448,25 @@
     "sourceId": "E70",
     "name": "Crunch declinado",
     "shortName": "Crunch declinado",
-    "category": "Core e integración",
-    "pattern": "Core/flexión",
-    "muscle": "Core",
-    "muscleGroups": [
-      "Core"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Core",
+      "patterns": [
+        "Flexión de tronco"
+      ],
+      "primaryMuscles": [
+        "Core anterior"
+      ],
+      "supportingMuscles": [
+        "Oblicuos"
+      ],
+      "equipment": [
+        "Accesorio abdominal",
+        "Banco ajustable"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Crunch/Situp Attachment; banco con declive graduable",
-    "mainEquipment": "Crunch/Situp",
-    "equipmentTags": [
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3633,13 +3476,6 @@
         "kind": "bench-accessory",
         "id": "crunch-situp"
       }
-    ],
-    "primaryMuscle": "Core anterior",
-    "primaryMuscles": [
-      "Core anterior"
-    ],
-    "secondaryMuscles": [
-      "Oblicuos"
     ],
     "dose": "2–4 × 10–20",
     "image": "public/exercise-images/crunch-sujecion-piernas.webp",
@@ -3658,21 +3494,28 @@
   {
     "id": "e71",
     "sourceId": "E71",
-    "name": "Incorporación abdominal declinada",
+    "name": "Sit-up declinado",
     "shortName": "Sit-up declinado",
-    "category": "Core e integración",
-    "pattern": "Core/flexión",
-    "muscle": "Core",
-    "muscleGroups": [
-      "Core"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Core",
+      "patterns": [
+        "Flexión de tronco"
+      ],
+      "primaryMuscles": [
+        "Core anterior",
+        "Flexores de cadera"
+      ],
+      "supportingMuscles": [
+        "Oblicuos"
+      ],
+      "equipment": [
+        "Accesorio abdominal",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Crunch/Situp; ángulo conservador",
-    "mainEquipment": "Crunch/Situp",
-    "equipmentTags": [
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3682,14 +3525,6 @@
         "kind": "bench-accessory",
         "id": "crunch-situp"
       }
-    ],
-    "primaryMuscle": "Core anterior",
-    "primaryMuscles": [
-      "Core anterior",
-      "Flexores de cadera"
-    ],
-    "secondaryMuscles": [
-      "Oblicuos"
     ],
     "dose": "2–4 × 6–15",
     "image": "public/exercise-images/situp-declinado.webp",
@@ -3710,19 +3545,27 @@
     "sourceId": "E72",
     "name": "Elevación de rodillas colgado",
     "shortName": "Knee raise colgado",
-    "category": "Core e integración",
-    "pattern": "Core/suspensión",
-    "muscle": "Core",
-    "muscleGroups": [
-      "Core"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Core",
+      "patterns": [
+        "Elevación de piernas"
+      ],
+      "primaryMuscles": [
+        "Core anterior",
+        "Flexores de cadera"
+      ],
+      "supportingMuscles": [
+        "Dorsal ancho",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Barra de dominadas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Chin-Up Attachment",
-    "mainEquipment": "Chin-Up",
-    "equipmentTags": [
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3732,15 +3575,6 @@
         "kind": "bench-accessory",
         "id": "chin-up-attachment"
       }
-    ],
-    "primaryMuscle": "Core anterior",
-    "primaryMuscles": [
-      "Core anterior",
-      "Flexores de cadera"
-    ],
-    "secondaryMuscles": [
-      "Dorsal ancho",
-      "Antebrazos"
     ],
     "dose": "2–4 × 6–15",
     "image": "public/exercise-images/elevacion-rodillas-colgado.webp",
@@ -3760,19 +3594,27 @@
     "sourceId": "E73",
     "name": "Elevación de piernas rectas colgado",
     "shortName": "Leg raise colgado",
-    "category": "Core e integración",
-    "pattern": "Core/suspensión",
-    "muscle": "Core",
-    "muscleGroups": [
-      "Core"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Core",
+      "patterns": [
+        "Elevación de piernas"
+      ],
+      "primaryMuscles": [
+        "Core anterior",
+        "Flexores de cadera"
+      ],
+      "supportingMuscles": [
+        "Dorsal ancho",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Barra de dominadas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Avanzado"
+    },
     "equipment": "Chin-Up",
-    "mainEquipment": "Chin-Up",
-    "equipmentTags": [
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3782,15 +3624,6 @@
         "kind": "bench-accessory",
         "id": "chin-up-attachment"
       }
-    ],
-    "primaryMuscle": "Core anterior",
-    "primaryMuscles": [
-      "Core anterior",
-      "Flexores de cadera"
-    ],
-    "secondaryMuscles": [
-      "Dorsal ancho",
-      "Antebrazos"
     ],
     "dose": "2–4 × 5–12",
     "image": "public/exercise-images/elevacion-piernas-rectas-colgado.webp",
@@ -3811,19 +3644,26 @@
     "sourceId": "E74",
     "name": "Pallof press",
     "shortName": "Pallof press",
-    "category": "Core e integración",
-    "pattern": "Anti-rotación",
-    "muscle": "Core",
-    "muscleGroups": [
-      "Core"
-    ],
-    "difficulty": "Básico–intermedio",
-    "documentedLevel": "Básico–intermedio",
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Core",
+      "patterns": [
+        "Antirrotación"
+      ],
+      "primaryMuscles": [
+        "Oblicuos",
+        "Core anterior"
+      ],
+      "supportingMuscles": [
+        "Glúteo mayor",
+        "Deltoides anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Básico–intermedio"
+    },
     "equipment": "Banda con anclaje lateral + agarre",
-    "mainEquipment": "Banda lateral",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3837,15 +3677,6 @@
         "kind": "anchor",
         "id": "anclaje-lateral"
       }
-    ],
-    "primaryMuscle": "Oblicuos",
-    "primaryMuscles": [
-      "Oblicuos",
-      "Core anterior"
-    ],
-    "secondaryMuscles": [
-      "Glúteo mayor",
-      "Deltoides anterior"
     ],
     "dose": "2–4 × 8–15/lado o 15–30 s",
     "image": "public/exercise-images/pallof-press-banda.webp",
@@ -3864,21 +3695,29 @@
   {
     "id": "e75",
     "sourceId": "E75",
-    "name": "Corte diagonal de arriba abajo",
+    "name": "Wood chop alto-a-bajo",
     "shortName": "Wood chop",
-    "category": "Core e integración",
-    "pattern": "Rotación diagonal",
-    "muscle": "Core",
-    "muscleGroups": [
-      "Core"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Core",
+      "patterns": [
+        "Rotación de tronco"
+      ],
+      "primaryMuscles": [
+        "Oblicuos",
+        "Core anterior"
+      ],
+      "supportingMuscles": [
+        "Dorsal ancho",
+        "Deltoides anterior",
+        "Glúteo mayor"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banda, anclaje alto",
-    "mainEquipment": "Banda alta",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3888,16 +3727,6 @@
         "kind": "anchor",
         "id": "anclaje-alto"
       }
-    ],
-    "primaryMuscle": "Oblicuos",
-    "primaryMuscles": [
-      "Oblicuos",
-      "Core anterior"
-    ],
-    "secondaryMuscles": [
-      "Dorsal ancho",
-      "Deltoides anterior",
-      "Glúteo mayor"
     ],
     "dose": "2–4 × 8–15/lado",
     "image": "public/exercise-images/wood-chop-banda.webp",
@@ -3916,21 +3745,29 @@
   {
     "id": "e76",
     "sourceId": "E76",
-    "name": "Elevación diagonal de abajo arriba",
+    "name": "Lift bajo-a-alto",
     "shortName": "Lift bajo-alto",
-    "category": "Core e integración",
-    "pattern": "Rotación diagonal",
-    "muscle": "Core",
-    "muscleGroups": [
-      "Core"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Core",
+      "patterns": [
+        "Rotación de tronco"
+      ],
+      "primaryMuscles": [
+        "Oblicuos",
+        "Core anterior"
+      ],
+      "supportingMuscles": [
+        "Glúteo mayor",
+        "Deltoides anterior",
+        "Serrato anterior"
+      ],
+      "equipment": [
+        "Bandas elásticas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Banda, anclaje bajo",
-    "mainEquipment": "Banda baja",
-    "equipmentTags": [
-      "Bandas y agarres"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -3940,16 +3777,6 @@
         "kind": "anchor",
         "id": "anclaje-bajo-variable"
       }
-    ],
-    "primaryMuscle": "Oblicuos",
-    "primaryMuscles": [
-      "Oblicuos",
-      "Core anterior"
-    ],
-    "secondaryMuscles": [
-      "Glúteo mayor",
-      "Deltoides anterior",
-      "Serrato anterior"
     ],
     "dose": "2–4 × 8–15/lado",
     "image": "public/exercise-images/lift-banda-bajo-alto.webp",
@@ -3969,40 +3796,34 @@
     "sourceId": "E77",
     "name": "Farmer carry bilateral",
     "shortName": "Farmer carry",
-    "category": "Core e integración",
-    "pattern": "Carga/estabilidad",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Brazos",
-      "Espalda",
-      "Hombros",
-      "Core"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Transporte de carga"
+      ],
+      "primaryMuscles": [
+        "Antebrazos",
+        "Trapecio",
+        "Core anterior"
+      ],
+      "supportingMuscles": [
+        "Glúteo mayor",
+        "Cuádriceps",
+        "Gemelos",
+        "Deltoides lateral"
+      ],
+      "equipment": [
+        "Mancuernas"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Dos SmartBells",
-    "mainEquipment": "2 DB",
-    "equipmentTags": [
-      "Mancuernas"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "smartbells-pro"
       }
-    ],
-    "primaryMuscle": "Antebrazos",
-    "primaryMuscles": [
-      "Antebrazos",
-      "Trapecio",
-      "Core anterior"
-    ],
-    "secondaryMuscles": [
-      "Glúteo mayor",
-      "Cuádriceps",
-      "Gemelos",
-      "Deltoides lateral"
     ],
     "dose": "3–5 × 20–60 s",
     "image": "public/exercise-images/paseo-granjero.webp",
@@ -4023,22 +3844,29 @@
     "sourceId": "E78",
     "name": "Suitcase carry",
     "shortName": "Suitcase carry",
-    "category": "Core e integración",
-    "pattern": "Anti-flexión lateral",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Core",
-      "Brazos"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
-    "equipment": "Una SmartBell o KB",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Transporte de carga",
+        "Antiflexión lateral"
+      ],
+      "primaryMuscles": [
+        "Oblicuos",
+        "Cuadrado lumbar",
+        "Antebrazos"
+      ],
+      "supportingMuscles": [
+        "Trapecio",
+        "Glúteo medio"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Intermedio"
+    },
+    "equipment": "Una SmartBell o pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -4048,16 +3876,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Oblicuos",
-    "primaryMuscles": [
-      "Oblicuos",
-      "Cuadrado lumbar",
-      "Antebrazos"
-    ],
-    "secondaryMuscles": [
-      "Trapecio",
-      "Glúteo medio"
     ],
     "dose": "3–5 × 20–60 s/lado",
     "image": "public/exercise-images/sujecion-maleta.webp",
@@ -4077,23 +3895,30 @@
     "sourceId": "E79",
     "name": "Overhead carry unilateral",
     "shortName": "Overhead carry",
-    "category": "Core e integración",
-    "pattern": "Estabilidad overhead",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Hombros",
-      "Pecho",
-      "Core"
-    ],
-    "difficulty": "Intermedio–avanzado",
-    "documentedLevel": "Intermedio–avanzado",
-    "equipment": "Una DB/KB",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Transporte de carga",
+        "Estabilidad sobre cabeza"
+      ],
+      "primaryMuscles": [
+        "Manguito rotador",
+        "Serrato anterior",
+        "Core anterior"
+      ],
+      "supportingMuscles": [
+        "Trapecio",
+        "Glúteo mayor",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Intermedio–avanzado"
+    },
+    "equipment": "Una mancuerna o pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -4103,17 +3928,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Manguito rotador",
-    "primaryMuscles": [
-      "Manguito rotador",
-      "Serrato anterior",
-      "Core anterior"
-    ],
-    "secondaryMuscles": [
-      "Trapecio",
-      "Glúteo mayor",
-      "Antebrazos"
     ],
     "dose": "3–4 × 15–40 s/lado",
     "image": "public/exercise-images/paseo-sobre-cabeza-unilateral.webp",
@@ -4134,24 +3948,32 @@
     "sourceId": "E80",
     "name": "Turkish get-up",
     "shortName": "Turkish get-up",
-    "category": "Core e integración",
-    "pattern": "Integrado multiplanar",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Core",
-      "Hombros",
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
-    "equipment": "Una KB o SmartBell; suelo firme",
-    "mainEquipment": "KB/DB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa",
-      "Sin equipamiento"
-    ],
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Integración multiplanar",
+        "Estabilidad sobre cabeza"
+      ],
+      "primaryMuscles": [
+        "Core anterior",
+        "Deltoides anterior",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Cuádriceps",
+        "Isquiotibiales",
+        "Erectores espinales",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa",
+        "Peso corporal"
+      ],
+      "difficulty": "Avanzado"
+    },
+    "equipment": "Una pesa rusa o SmartBell; suelo firme",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -4165,18 +3987,6 @@
         "kind": "support",
         "id": "suelo"
       }
-    ],
-    "primaryMuscle": "Core anterior",
-    "primaryMuscles": [
-      "Core anterior",
-      "Deltoides anterior",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Cuádriceps",
-      "Isquiotibiales",
-      "Erectores espinales",
-      "Antebrazos"
     ],
     "dose": "2–4 × 1–5/lado",
     "image": "public/exercise-images/turkish-get-up.webp",
@@ -4195,77 +4005,81 @@
   {
     "id": "e81",
     "sourceId": "E81",
-    "name": "Molino con pesa rusa",
+    "name": "Windmill con kettlebell",
     "shortName": "Windmill",
-    "category": "Core e integración",
-    "pattern": "Hinge/core/overhead",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Core",
-      "Glúteos e isquios"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
-    "equipment": "Una KB",
-    "mainEquipment": "KB",
-    "equipmentTags": [
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Bisagra de cadera",
+        "Estabilidad sobre cabeza"
+      ],
+      "primaryMuscles": [
+        "Oblicuos",
+        "Glúteo mayor",
+        "Isquiotibiales"
+      ],
+      "supportingMuscles": [
+        "Erectores espinales",
+        "Manguito rotador",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Pesa rusa"
+      ],
+      "difficulty": "Avanzado"
+    },
+    "equipment": "Una pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
     ],
-    "primaryMuscle": "Oblicuos",
-    "primaryMuscles": [
-      "Oblicuos",
-      "Glúteo mayor",
-      "Isquiotibiales"
-    ],
-    "secondaryMuscles": [
-      "Erectores espinales",
-      "Manguito rotador",
-      "Antebrazos"
-    ],
     "dose": "2–3 × 5–10/lado",
     "image": "public/exercise-images/windmill-pesa-rusa.webp",
     "cue": "Exige movilidad torácica/cadera y estabilidad overhead.",
     "steps": [
-      "KB sobre cabeza.",
+      "pesa rusa sobre cabeza.",
       "Pies ligeramente orientados.",
       "Llevar cadera hacia lado de la carga.",
       "Descender mano libre por pierna manteniendo brazo vertical estable.",
       "Volver."
     ],
     "safety": "Exige movilidad torácica/cadera y estabilidad overhead. Regresión: sin peso o carga abajo. 2–3 × 5–10/lado.",
-    "documentedExecution": "1. KB sobre cabeza. 2. Pies ligeramente orientados. 3. Llevar cadera hacia lado de la carga. 4. Descender mano libre por pierna manteniendo brazo vertical estable. 5. Volver.",
+    "documentedExecution": "1. pesa rusa sobre cabeza. 2. Pies ligeramente orientados. 3. Llevar cadera hacia lado de la carga. 4. Descender mano libre por pierna manteniendo brazo vertical estable. 5. Volver.",
     "documentedTechnique": "Exige movilidad torácica/cadera y estabilidad overhead. Regresión: sin peso o carga abajo. 2–3 × 5–10/lado."
   },
   {
     "id": "e82",
     "sourceId": "E82",
-    "name": "Sentadilla con press con mancuernas o una pesa rusa",
+    "name": "Thruster con mancuernas o pesa rusa unilateral",
     "shortName": "Thruster",
-    "category": "Core e integración",
-    "pattern": "Sentadilla + empuje",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Piernas",
-      "Glúteos e isquios",
-      "Hombros",
-      "Brazos"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
-    "equipment": "Dos SmartBells o una KB",
-    "mainEquipment": "DB/KB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Sentadilla",
+        "Empuje vertical"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor",
+        "Deltoides anterior",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Pesa rusa"
+      ],
+      "difficulty": "Intermedio"
+    },
+    "equipment": "Dos SmartBells o una pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -4275,18 +4089,6 @@
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor",
-      "Deltoides anterior",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "3–5 × 5–12",
     "image": "public/exercise-images/sentadilla-press-mancuerna.webp",
@@ -4305,42 +4107,38 @@
   {
     "id": "e83",
     "sourceId": "E83",
-    "name": "Cargada y press unilateral con pesa rusa",
+    "name": "Clean & press unilateral con pesa rusa",
     "shortName": "Clean & press",
-    "category": "Core e integración",
-    "pattern": "Hinge + empuje",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Glúteos e isquios",
-      "Hombros",
-      "Brazos"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
-    "equipment": "Una KB",
-    "mainEquipment": "KB",
-    "equipmentTags": [
-      "Pesa rusa"
-    ],
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Potencia de cadera",
+        "Empuje vertical"
+      ],
+      "primaryMuscles": [
+        "Glúteo mayor",
+        "Isquiotibiales",
+        "Deltoides anterior",
+        "Tríceps braquial"
+      ],
+      "supportingMuscles": [
+        "Dorsal ancho",
+        "Erectores espinales",
+        "Core anterior",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Pesa rusa"
+      ],
+      "difficulty": "Avanzado"
+    },
+    "equipment": "Una pesa rusa",
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "pesa-rusa-ajustable"
       }
-    ],
-    "primaryMuscle": "Glúteo mayor",
-    "primaryMuscles": [
-      "Glúteo mayor",
-      "Isquiotibiales",
-      "Deltoides anterior",
-      "Tríceps braquial"
-    ],
-    "secondaryMuscles": [
-      "Dorsal ancho",
-      "Erectores espinales",
-      "Core anterior",
-      "Antebrazos"
     ],
     "dose": "3–5 × 3–8/lado",
     "image": "public/exercise-images/clean-press-pesa-rusa.webp",
@@ -4352,30 +4150,40 @@
       "Press overhead estricto o controlado.",
       "Volver al rack y bajar con técnica."
     ],
-    "safety": "Dominar clean y press por separado. BRAINGAIN identifica clean & press como uso de la KB. 3–5 × 3–8/lado.",
+    "safety": "Dominar clean y press por separado. BRAINGAIN identifica clean & press como uso de la pesa rusa. 3–5 × 3–8/lado.",
     "documentedExecution": "1. Ejecutar clean de E67. 2. Estabilizar rack. 3. Brace. 4. Press overhead estricto o controlado. 5. Volver al rack y bajar con técnica.",
-    "documentedTechnique": "Dominar clean y press por separado. BRAINGAIN identifica clean & press como uso de la KB. 3–5 × 3–8/lado."
+    "documentedTechnique": "Dominar clean y press por separado. BRAINGAIN identifica clean & press como uso de la pesa rusa. 3–5 × 3–8/lado."
   },
   {
     "id": "e84",
     "sourceId": "E84",
     "name": "Renegade row con mancuernas",
     "shortName": "Renegade row",
-    "category": "Core e integración",
-    "pattern": "Tirón + anti-rotación",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Espalda"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
+    "taxonomy": {
+      "family": "Core e integración",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Tirón horizontal",
+        "Antirrotación"
+      ],
+      "primaryMuscles": [
+        "Dorsal ancho",
+        "Romboides"
+      ],
+      "supportingMuscles": [
+        "Core anterior",
+        "Pectoral mayor",
+        "Tríceps braquial",
+        "Glúteo mayor",
+        "Antebrazos"
+      ],
+      "equipment": [
+        "Mancuernas",
+        "Banco ajustable"
+      ],
+      "difficulty": "Avanzado"
+    },
     "equipment": "Dos SmartBells solo si apoyan de forma estable y el selector no puede dañarse/desplazarse; alternativa conservadora: una mano en banco y remo desde plancha elevada",
-    "mainEquipment": "DB",
-    "equipmentTags": [
-      "Mancuernas",
-      "Banco y accesorios"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
@@ -4385,18 +4193,6 @@
         "kind": "equipment",
         "id": "super-bench-pro-v2"
       }
-    ],
-    "primaryMuscle": "Dorsal ancho",
-    "primaryMuscles": [
-      "Dorsal ancho",
-      "Romboides"
-    ],
-    "secondaryMuscles": [
-      "Core anterior",
-      "Pectoral mayor",
-      "Tríceps braquial",
-      "Glúteo mayor",
-      "Antebrazos"
     ],
     "dose": "2–4 × 5–10/lado",
     "image": "public/exercise-images/renegade-row-mancuernas.webp",
@@ -4417,39 +4213,34 @@
     "sourceId": "E85",
     "name": "Remo aeróbico continuo",
     "shortName": "Remo aeróbico continuo",
-    "category": "Cardio",
-    "pattern": "Cardio",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Piernas",
-      "Glúteos e isquios",
-      "Espalda"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Cardio",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Remo continuo"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor",
+        "Dorsal ancho"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Bíceps braquial",
+        "Deltoides posterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Máquina de remo"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Rogue Echo Rower",
-    "mainEquipment": "Echo Rower",
-    "equipmentTags": [
-      "Rogue Echo Rower"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "rogue-echo-rower"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor",
-      "Dorsal ancho"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Bíceps braquial",
-      "Deltoides posterior",
-      "Core anterior"
     ],
     "dose": "20–60 min",
     "image": "public/exercise-images/remo-continuo-suave.webp",
@@ -4470,39 +4261,34 @@
     "sourceId": "E86",
     "name": "Remo técnico por bloques",
     "shortName": "Remo técnico",
-    "category": "Cardio",
-    "pattern": "Técnica/cardio",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Piernas",
-      "Glúteos e isquios",
-      "Espalda"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Cardio",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Técnica de remo"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor",
+        "Dorsal ancho"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Bíceps braquial",
+        "Deltoides posterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Máquina de remo"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Rogue Echo Rower",
-    "mainEquipment": "Echo Rower",
-    "equipmentTags": [
-      "Rogue Echo Rower"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "rogue-echo-rower"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor",
-      "Dorsal ancho"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Bíceps braquial",
-      "Deltoides posterior",
-      "Core anterior"
     ],
     "dose": "10–20 min",
     "image": "public/exercise-images/remo-bloques-suaves-moderados.webp",
@@ -4521,41 +4307,36 @@
   {
     "id": "e87",
     "sourceId": "E87",
-    "name": "Remo a ritmo sostenido o umbral sostenible",
+    "name": "Remo tempo/umbral sostenible",
     "shortName": "Remo tempo",
-    "category": "Cardio",
-    "pattern": "Cardio sostenido",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Piernas",
-      "Glúteos e isquios",
-      "Espalda"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Cardio",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Remo continuo"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor",
+        "Dorsal ancho"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Bíceps braquial",
+        "Deltoides posterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Máquina de remo"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Rogue Echo Rower",
-    "mainEquipment": "Echo Rower",
-    "equipmentTags": [
-      "Rogue Echo Rower"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "rogue-echo-rower"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor",
-      "Dorsal ancho"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Bíceps braquial",
-      "Deltoides posterior",
-      "Core anterior"
     ],
     "dose": "3 × 5–10 min",
     "image": "public/exercise-images/remo-continuo-suave.webp",
@@ -4576,39 +4357,34 @@
     "sourceId": "E88",
     "name": "Intervalos 1:1",
     "shortName": "Intervalos 1:1",
-    "category": "Cardio",
-    "pattern": "Cardio/HIIT",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Piernas",
-      "Glúteos e isquios",
-      "Espalda"
-    ],
-    "difficulty": "Intermedio",
-    "documentedLevel": "Intermedio",
+    "taxonomy": {
+      "family": "Cardio",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Intervalos de remo"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor",
+        "Dorsal ancho"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Bíceps braquial",
+        "Deltoides posterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Máquina de remo"
+      ],
+      "difficulty": "Intermedio"
+    },
     "equipment": "Rogue Echo Rower",
-    "mainEquipment": "Echo Rower",
-    "equipmentTags": [
-      "Rogue Echo Rower"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "rogue-echo-rower"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor",
-      "Dorsal ancho"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Bíceps braquial",
-      "Deltoides posterior",
-      "Core anterior"
     ],
     "dose": "6–12 × 1 min fuerte / 1 min fácil",
     "image": "public/exercise-images/remo-bloques-suaves-moderados.webp",
@@ -4627,41 +4403,36 @@
   {
     "id": "e89",
     "sourceId": "E89",
-    "name": "Aceleraciones cortas",
+    "name": "Sprints cortos",
     "shortName": "Sprints cortos",
-    "category": "Cardio",
-    "pattern": "Potencia/cardio",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Piernas",
-      "Glúteos e isquios",
-      "Espalda"
-    ],
-    "difficulty": "Avanzado",
-    "documentedLevel": "Avanzado",
+    "taxonomy": {
+      "family": "Cardio",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Potencia de remo"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor",
+        "Dorsal ancho"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Bíceps braquial",
+        "Deltoides posterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Máquina de remo"
+      ],
+      "difficulty": "Avanzado"
+    },
     "equipment": "Rogue Echo Rower",
-    "mainEquipment": "Echo Rower",
-    "equipmentTags": [
-      "Rogue Echo Rower"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "rogue-echo-rower"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor",
-      "Dorsal ancho"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Bíceps braquial",
-      "Deltoides posterior",
-      "Core anterior"
     ],
     "dose": "6–10 × 10–30 s",
     "image": "public/exercise-images/remo-continuo-suave.webp",
@@ -4682,43 +4453,39 @@
     "sourceId": "E90",
     "name": "Paladas de potencia a baja cadencia",
     "shortName": "Paladas potencia baja cadencia",
-    "category": "Cardio",
-    "pattern": "Potencia técnica",
-    "muscle": "Cuerpo completo",
-    "muscleGroups": [
-      "Cuerpo completo",
-      "Piernas",
-      "Glúteos e isquios",
-      "Espalda"
-    ],
-    "difficulty": "Intermedio–avanzado",
-    "documentedLevel": "Intermedio–avanzado",
+    "taxonomy": {
+      "family": "Cardio",
+      "primaryRegion": "Cuerpo completo",
+      "patterns": [
+        "Potencia de remo",
+        "Técnica de remo"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor",
+        "Dorsal ancho"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Bíceps braquial",
+        "Deltoides posterior",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Máquina de remo"
+      ],
+      "difficulty": "Intermedio–avanzado"
+    },
     "equipment": "Rogue Echo Rower",
-    "mainEquipment": "Echo Rower",
-    "equipmentTags": [
-      "Rogue Echo Rower"
-    ],
     "equipmentRefs": [
       {
         "kind": "equipment",
         "id": "rogue-echo-rower"
       }
     ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor",
-      "Dorsal ancho"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Bíceps braquial",
-      "Deltoides posterior",
-      "Core anterior"
-    ],
     "dose": "6–10 bloques de 10 paladas",
     "image": "public/exercise-images/remo-bloques-suaves-moderados.webp",
-    "cue": "6–10 bloques de 10 paladas, aproximadamente 18–22 spm como referencia práctica.",
+    "cue": "6–10 bloques de 10 paladas, aproximadamente 18–22 paladas por minuto como referencia práctica.",
     "steps": [
       "Mantener frecuencia relativamente baja.",
       "Drive agresivo desde piernas.",
@@ -4726,46 +4493,42 @@
       "Realizar 10 paladas de calidad.",
       "Remar fácil antes de repetir."
     ],
-    "safety": "6–10 bloques de 10 paladas, aproximadamente 18–22 spm como referencia práctica. Mantener damper moderado para que la calidad derive de aceleración del volante, no simplemente de cerrar el flujo de aire. El principio de que la resistencia efectiva depende de la velocidad del volante está documentado para ergómetros de aire.",
+    "safety": "6–10 bloques de 10 paladas, aproximadamente 18–22 paladas por minuto como referencia práctica. Mantener damper moderado para que la calidad derive de aceleración del volante, no simplemente de cerrar el flujo de aire. El principio de que la resistencia efectiva depende de la velocidad del volante está documentado para ergómetros de aire.",
     "documentedExecution": "1. Mantener frecuencia relativamente baja. 2. Drive agresivo desde piernas. 3. Recovery deliberadamente más lenta. 4. Realizar 10 paladas de calidad. 5. Remar fácil antes de repetir.",
-    "documentedTechnique": "6–10 bloques de 10 paladas, aproximadamente 18–22 spm como referencia práctica. Mantener damper moderado para que la calidad derive de aceleración del volante, no simplemente de cerrar el flujo de aire. El principio de que la resistencia efectiva depende de la velocidad del volante está documentado para ergómetros de aire."
+    "documentedTechnique": "6–10 bloques de 10 paladas, aproximadamente 18–22 paladas por minuto como referencia práctica. Mantener damper moderado para que la calidad derive de aceleración del volante, no simplemente de cerrar el flujo de aire. El principio de que la resistencia efectiva depende de la velocidad del volante está documentado para ergómetros de aire."
   },
   {
     "id": "e91",
     "sourceId": "E91",
     "name": "Caminata a ritmo sostenible",
     "shortName": "Caminata sostenible",
-    "category": "Cardio",
-    "pattern": "Cardio sostenido",
-    "muscle": "Piernas",
-    "muscleGroups": [
-      "Piernas",
-      "Glúteos e isquios",
-      "Cuerpo completo"
-    ],
-    "difficulty": "Básico",
-    "documentedLevel": "Básico",
+    "taxonomy": {
+      "family": "Cardio",
+      "primaryRegion": "Piernas",
+      "patterns": [
+        "Caminata"
+      ],
+      "primaryMuscles": [
+        "Cuádriceps",
+        "Glúteo mayor"
+      ],
+      "supportingMuscles": [
+        "Isquiotibiales",
+        "Gemelos",
+        "Sóleo",
+        "Core anterior"
+      ],
+      "equipment": [
+        "Calzado cómodo"
+      ],
+      "difficulty": "Básico"
+    },
     "equipment": "Calzado cómodo y recorrido seguro",
-    "mainEquipment": "Calzado cómodo",
-    "equipmentTags": [
-      "Calzado cómodo"
-    ],
     "equipmentRefs": [
       {
         "kind": "support",
         "id": "calzado"
       }
-    ],
-    "primaryMuscle": "Cuádriceps",
-    "primaryMuscles": [
-      "Cuádriceps",
-      "Glúteo mayor"
-    ],
-    "secondaryMuscles": [
-      "Isquiotibiales",
-      "Gemelos",
-      "Sóleo",
-      "Core anterior"
     ],
     "dose": "20–60 min",
     "image": "public/exercise-images/caminata-ritmo-sostenible.webp",

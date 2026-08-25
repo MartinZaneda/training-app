@@ -17,6 +17,12 @@
     Brazos: ["Bíceps braquial", "Braquial", "Braquiorradial", "Tríceps braquial", "Antebrazos"],
     Aductores: ["Aductores"]
   };
+  const EXERCISE_TAXONOMY_FIELDS = ["family", "primaryRegion", "patterns", "primaryMuscles", "supportingMuscles", "equipment", "difficulty"];
+  const EXERCISE_FAMILIES = new Set(["Empuje", "Tirón", "Piernas", "Cadena posterior", "Core e integración", "Cardio"]);
+  const EXERCISE_PRIMARY_REGIONS = new Set(["Pecho", "Espalda", "Hombros", "Brazos", "Piernas", "Glúteos e isquios", "Core", "Cuerpo completo"]);
+  const EXERCISE_DIFFICULTIES = new Set(["Básico", "Básico–intermedio", "Intermedio", "Intermedio–avanzado", "Avanzado"]);
+  const EXERCISE_PATTERNS = new Set(["Empuje horizontal", "Empuje inclinado", "Empuje vertical", "Apertura de pecho", "Extensión de hombro", "Elevación de hombro", "Extensión de codo", "Tirón vertical", "Control escapular", "Tirón horizontal", "Flexión de codo", "Sentadilla", "Zancada", "Flexión plantar", "Bisagra de cadera", "Extensión de cadera", "Potencia de tren inferior", "Potencia de cadera", "Flexión de tronco", "Elevación de piernas", "Antirrotación", "Antiflexión lateral", "Rotación de tronco", "Transporte de carga", "Estabilidad unilateral", "Estabilidad sobre cabeza", "Integración multiplanar", "Remo continuo", "Técnica de remo", "Intervalos de remo", "Potencia de remo", "Caminata"]);
+  const EXERCISE_EQUIPMENT = new Set(["Mancuernas", "Pesa rusa", "Banco ajustable", "Bandas elásticas", "Máquina de remo", "Peso corporal", "Accesorio abdominal", "Barra de dominadas", "Calzado cómodo"]);
   const ROUTINE_FACETS = ["library", "objective", "type", "region", "equipment", "duration", "level", "pattern", "station", "format", "logistics", "complement"];
   const ROUTINE_FIELDS = { library: "library", objective: "objectives", type: "types", region: "regions", equipment: "equipment", duration: "durations", level: "level", pattern: "patterns", station: "stations", format: "formats", logistics: "logisticsChanges", complement: "complements" };
   const DURATION_LABELS = { XS: "Muy corta", S: "Corta", M: "Media", L: "Larga" };
@@ -70,7 +76,6 @@
   const LEGACY_PROFILE_ALIASES = { marta: "personal", carlos: "personal", alba: "personal" };
 
   function unique(items) { return [...new Set(items.filter((item) => item !== null && item !== undefined && item !== ""))]; }
-  function exerciseSpecificMuscles(exercise) { return unique([...(exercise?.primaryMuscles || [exercise?.primaryMuscle]), ...(exercise?.secondaryMuscles || [])]); }
   function normalizedSearchText(value) { return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es"); }
 
   function inventoryReferenceSets(inventory) {
@@ -163,11 +168,24 @@
       if (!/^E\d{2}$/.test(exercise?.sourceId || "") || sourceIds.has(exercise.sourceId)) errors.push(`${exercise?.id || "Ejercicio"}: sourceId ausente o duplicado.`);
       ids.add(exercise?.id);
       sourceIds.add(exercise?.sourceId);
-      if (!Array.isArray(exercise?.muscleGroups) || !exercise.muscleGroups.length) errors.push(`${exercise?.sourceId}: sin grupos musculares.`);
-      if (!Array.isArray(exercise?.primaryMuscles) || !exercise.primaryMuscles.length) errors.push(`${exercise?.sourceId}: sin músculos primarios.`);
-      if (exercise?.primaryMuscles?.[0] !== exercise?.primaryMuscle) errors.push(`${exercise?.sourceId}: alias primario incoherente.`);
-      if (exercise?.secondaryMuscles?.some((muscle) => exercise.primaryMuscles.includes(muscle))) errors.push(`${exercise?.sourceId}: músculo repetido como primario y secundario.`);
-      if (!Array.isArray(exercise?.equipmentTags) || !exercise.equipmentTags.length) errors.push(`${exercise?.sourceId}: sin etiquetas de material.`);
+      const taxonomy = exercise?.taxonomy;
+      const taxonomyFields = Object.keys(taxonomy || {}).sort();
+      if (!taxonomy || JSON.stringify(taxonomyFields) !== JSON.stringify([...EXERCISE_TAXONOMY_FIELDS].sort())) errors.push(`${exercise?.sourceId}: estructura taxonómica incompleta o desconocida.`);
+      if (!EXERCISE_FAMILIES.has(taxonomy?.family)) errors.push(`${exercise?.sourceId}: familia de movimiento no válida.`);
+      if (!EXERCISE_PRIMARY_REGIONS.has(taxonomy?.primaryRegion)) errors.push(`${exercise?.sourceId}: zona corporal principal no válida.`);
+      if (!EXERCISE_DIFFICULTIES.has(taxonomy?.difficulty)) errors.push(`${exercise?.sourceId}: dificultad no válida.`);
+      for (const [field, allowedValues] of [["patterns", EXERCISE_PATTERNS], ["equipment", EXERCISE_EQUIPMENT]]) {
+        const values = taxonomy?.[field];
+        if (!Array.isArray(values) || !values.length || unique(values).length !== values.length || values.some((value) => !allowedValues.has(value))) errors.push(`${exercise?.sourceId}: ${field} contiene etiquetas ausentes, duplicadas o no canónicas.`);
+      }
+      const primaryMuscles = taxonomy?.primaryMuscles;
+      const supportingMuscles = taxonomy?.supportingMuscles;
+      const knownMuscles = new Set(MUSCLE_GROUPS["Cuerpo completo"]);
+      if (!Array.isArray(primaryMuscles) || !primaryMuscles.length || unique(primaryMuscles).length !== primaryMuscles.length || primaryMuscles.some((muscle) => !knownMuscles.has(muscle))) errors.push(`${exercise?.sourceId}: músculos principales ausentes, duplicados o no canónicos.`);
+      if (!Array.isArray(supportingMuscles) || unique(supportingMuscles || []).length !== supportingMuscles?.length || supportingMuscles?.some((muscle) => !knownMuscles.has(muscle) || primaryMuscles?.includes(muscle))) errors.push(`${exercise?.sourceId}: músculos de apoyo duplicados, desconocidos o clasificados también como principales.`);
+      const tagValues = [taxonomy?.family, taxonomy?.primaryRegion, ...(Array.isArray(taxonomy?.patterns) ? taxonomy.patterns : []), ...(Array.isArray(primaryMuscles) ? primaryMuscles : []), ...(Array.isArray(supportingMuscles) ? supportingMuscles : []), ...(Array.isArray(taxonomy?.equipment) ? taxonomy.equipment : []), taxonomy?.difficulty];
+      if (tagValues.some((tag) => typeof tag !== "string" || tag !== tag.trim() || tag.length > 28 || tag.includes(":"))) errors.push(`${exercise?.sourceId}: existe una etiqueta larga, compuesta o mal espaciada.`);
+      if (taxonomy?.primaryRegion !== "Cuerpo completo" && primaryMuscles?.every((muscle) => !MUSCLE_GROUPS[taxonomy.primaryRegion].includes(muscle))) errors.push(`${exercise?.sourceId}: la zona principal no coincide con ningún músculo principal.`);
       if (!Array.isArray(exercise?.equipmentRefs) || !exercise.equipmentRefs.length) errors.push(`${exercise?.sourceId}: sin referencias de material.`);
       if (selectableReferences && !exercise?.equipmentRefs?.some((reference) => selectableReferences.has(`${reference.kind}:${reference.id}`))) errors.push(`${exercise?.sourceId}: sin configuración de registro vinculada al inventario.`);
       for (const reference of exercise?.equipmentRefs || []) {
@@ -365,26 +383,31 @@
 
   function exerciseMatchesFilters(exercise, filters = {}, ignoredFacet = null) {
     const query = normalizedSearchText(filters.query).trim();
-    const specificMuscles = exerciseSpecificMuscles(exercise);
-    const searchable = [exercise.sourceId, exercise.name, exercise.shortName, exercise.category, exercise.pattern, ...(exercise.muscleGroups || [exercise.muscle]), ...specificMuscles, exercise.equipment, exercise.mainEquipment, exercise.difficulty];
+    const taxonomy = exercise?.taxonomy || {};
+    const searchable = [exercise.sourceId, exercise.name, exercise.shortName, taxonomy.family, taxonomy.primaryRegion, ...(taxonomy.patterns || []), ...(taxonomy.primaryMuscles || []), ...(taxonomy.supportingMuscles || []), ...(taxonomy.equipment || []), exercise.equipment, taxonomy.difficulty];
     return (!query || searchable.some((value) => normalizedSearchText(value).includes(query)))
-      && (ignoredFacet === "muscle" || !filters.muscle || (exercise.muscleGroups || [exercise.muscle]).includes(filters.muscle))
-      && (ignoredFacet === "specificMuscle" || !filters.specificMuscle || specificMuscles.includes(filters.specificMuscle))
-      && (ignoredFacet === "equipment" || !filters.equipment || (exercise.equipmentTags || []).includes(filters.equipment))
-      && (ignoredFacet === "difficulty" || !filters.difficulty || exercise.difficulty === filters.difficulty);
+      && (ignoredFacet === "region" || !filters.region || taxonomy.primaryRegion === filters.region)
+      && (ignoredFacet === "primaryMuscle" || !filters.primaryMuscle || taxonomy.primaryMuscles?.includes(filters.primaryMuscle))
+      && (ignoredFacet === "movement" || !filters.movement || taxonomy.patterns?.includes(filters.movement))
+      && (ignoredFacet === "equipment" || !filters.equipment || taxonomy.equipment?.includes(filters.equipment))
+      && (ignoredFacet === "difficulty" || !filters.difficulty || taxonomy.difficulty === filters.difficulty);
   }
 
   function exerciseFilterFacets(exercises, filters = {}) {
     const list = Array.isArray(exercises) ? exercises : [];
-    const groupMuscles = filters.muscle && MUSCLE_GROUPS[filters.muscle] ? new Set(MUSCLE_GROUPS[filters.muscle]) : null;
-    const selectedSpecificMuscle = filters.specificMuscle && groupMuscles?.has(filters.specificMuscle) ? filters.specificMuscle : null;
-    const effectiveFilters = { ...filters, specificMuscle: selectedSpecificMuscle };
-    const valuesFor = (facet) => facet === "specificMuscle" ? (groupMuscles ? [...groupMuscles] : []) : unique(list.flatMap((exercise) => facet === "equipment" ? exercise.equipmentTags || [] : facet === "muscle" ? exercise.muscleGroups || [exercise.muscle] : [exercise[facet]]));
+    const regionMuscles = filters.region && MUSCLE_GROUPS[filters.region] ? new Set(MUSCLE_GROUPS[filters.region]) : null;
+    const selectedPrimaryMuscle = filters.primaryMuscle && regionMuscles?.has(filters.primaryMuscle) ? filters.primaryMuscle : null;
+    const effectiveFilters = { ...filters, primaryMuscle: selectedPrimaryMuscle };
+    const valuesFor = (facet) => {
+      if (facet === "primaryMuscle") return regionMuscles ? unique(list.flatMap((exercise) => exercise.taxonomy.primaryRegion === filters.region ? exercise.taxonomy.primaryMuscles.filter((muscle) => regionMuscles.has(muscle)) : [])) : [];
+      return unique(list.flatMap((exercise) => facet === "region" ? [exercise.taxonomy.primaryRegion] : facet === "movement" ? exercise.taxonomy.patterns : facet === "equipment" ? exercise.taxonomy.equipment : [exercise.taxonomy.difficulty]));
+    };
     const facetOptions = (facet) => {
       const pool = list.filter((exercise) => exerciseMatchesFilters(exercise, effectiveFilters, facet));
-      return valuesFor(facet).map((value) => ({ value, count: pool.filter((exercise) => facet === "equipment" ? (exercise.equipmentTags || []).includes(value) : facet === "specificMuscle" ? exerciseSpecificMuscles(exercise).includes(value) : facet === "muscle" ? (exercise.muscleGroups || [exercise.muscle]).includes(value) : exercise[facet] === value).length })).filter((item) => item.count > 0);
+      return valuesFor(facet).map((value) => ({ value, count: pool.filter((exercise) => facet === "region" ? exercise.taxonomy.primaryRegion === value : facet === "primaryMuscle" ? exercise.taxonomy.primaryMuscles.includes(value) : facet === "movement" ? exercise.taxonomy.patterns.includes(value) : facet === "equipment" ? exercise.taxonomy.equipment.includes(value) : exercise.taxonomy.difficulty === value).length })).filter((item) => item.count > 0);
     };
-    return { options: list.filter((exercise) => exerciseMatchesFilters(exercise, effectiveFilters)), facets: Object.fromEntries(["muscle", "specificMuscle", "equipment", "difficulty"].map((facet) => [facet, facetOptions(facet)])), selectedSpecificMuscle };
+    const facetNames = ["region", "primaryMuscle", "movement", "equipment", "difficulty"];
+    return { options: list.filter((exercise) => exerciseMatchesFilters(exercise, effectiveFilters)), facets: Object.fromEntries(facetNames.map((facet) => [facet, facetOptions(facet)])), selectedPrimaryMuscle };
   }
 
   function routineHas(routine, facet, value) {
@@ -559,7 +582,6 @@
     routineFilterFacets,
     routineMatchesFilters,
     routineFacetLabel,
-    exerciseSpecificMuscles,
     exerciseMatchesFilters,
     exerciseFilterFacets,
     migrateState,

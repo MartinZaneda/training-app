@@ -73,11 +73,12 @@ assert.deepEqual(data.exercises.map((exercise) => exercise.sourceId), sourceIds)
 assert.deepEqual(data.exercises.map((exercise) => exercise.id), sourceIds.map((id) => id.toLowerCase()));
 assert.equal(new Set(data.exercises.map((exercise) => exercise.name)).size, 91);
 assert.deepEqual(
-  Object.fromEntries(Object.entries(Object.groupBy(data.exercises, (exercise) => exercise.category)).map(([category, items]) => [category, items.length])),
+  Object.fromEntries(Object.entries(Object.groupBy(data.exercises, (exercise) => exercise.taxonomy.family)).map(([category, items]) => [category, items.length])),
   { Empuje: 24, "Tirón": 20, Piernas: 11, "Cadena posterior": 14, "Core e integración": 15, Cardio: 7 }
 );
 
 const documentedLevels = new Set(["Básico", "Básico–intermedio", "Intermedio", "Intermedio–avanzado", "Avanzado"]);
+const taxonomyFields = ["difficulty", "equipment", "family", "patterns", "primaryMuscles", "primaryRegion", "supportingMuscles"];
 const validEquipmentRefs = {
   equipment: new Set(data.equipment.map((item) => item.id)),
   "bench-accessory": new Set(data.equipment.flatMap((item) => item.accessories || []).map((item) => item.id)),
@@ -87,12 +88,16 @@ const validEquipmentRefs = {
 };
 assert.ok(data.bandAnchors.every((anchor) => anchor.icon === "anchor"));
 for (const exercise of data.exercises) {
-  assert.ok(documentedLevels.has(exercise.difficulty), `${exercise.sourceId}: nivel no documental`);
-  assert.equal(exercise.documentedLevel, exercise.difficulty);
-  assert.ok(exercise.pattern && exercise.dose && exercise.equipment && exercise.mainEquipment);
-  assert.ok(exercise.primaryMuscles.length && exercise.muscleGroups.length && exercise.equipmentTags.length && exercise.equipmentRefs.length);
-  assert.equal(exercise.primaryMuscle, exercise.primaryMuscles[0]);
-  assert.ok(exercise.secondaryMuscles.every((muscle) => !exercise.primaryMuscles.includes(muscle)));
+  assert.deepEqual(Object.keys(exercise.taxonomy).sort(), taxonomyFields, `${exercise.sourceId}: taxonomía fuera del contrato canónico`);
+  assert.ok(documentedLevels.has(exercise.taxonomy.difficulty), `${exercise.sourceId}: nivel no documental`);
+  assert.ok(exercise.dose && exercise.equipment);
+  assert.ok(exercise.taxonomy.primaryRegion && exercise.taxonomy.patterns.length && exercise.taxonomy.primaryMuscles.length && exercise.taxonomy.equipment.length && exercise.equipmentRefs.length);
+  assert.equal(new Set(exercise.taxonomy.patterns).size, exercise.taxonomy.patterns.length);
+  assert.equal(new Set(exercise.taxonomy.primaryMuscles).size, exercise.taxonomy.primaryMuscles.length);
+  assert.equal(new Set(exercise.taxonomy.supportingMuscles).size, exercise.taxonomy.supportingMuscles.length);
+  assert.equal(new Set(exercise.taxonomy.equipment).size, exercise.taxonomy.equipment.length);
+  assert.ok(exercise.taxonomy.supportingMuscles.every((muscle) => !exercise.taxonomy.primaryMuscles.includes(muscle)));
+  for (const legacyField of ["category", "pattern", "muscle", "muscleGroups", "difficulty", "documentedLevel", "equipmentTags", "mainEquipment", "primaryMuscle", "primaryMuscles", "secondaryMuscles"]) assert.equal(Object.hasOwn(exercise, legacyField), false, `${exercise.sourceId}: conserva el campo duplicado ${legacyField}`);
   for (const ref of exercise.equipmentRefs) {
     assert.ok(validEquipmentRefs[ref.kind], `${exercise.sourceId}: tipo de referencia desconocido`);
     assert.ok(validEquipmentRefs[ref.kind].has(ref.id), `${exercise.sourceId}: referencia inexistente ${ref.kind}:${ref.id}`);
@@ -102,9 +107,23 @@ for (const exercise of data.exercises) {
   assert.ok(fs.existsSync(imagePath), `${exercise.sourceId}: imagen inexistente`);
   assert.deepEqual(webpDimensions(imagePath), { width: 720, height: 720 }, `${exercise.sourceId}: imagen fuera del patrón 720 × 720`);
 }
+const exerciseTags = data.exercises.flatMap((exercise) => {
+  const taxonomy = exercise.taxonomy;
+  return [taxonomy.family, taxonomy.primaryRegion, ...taxonomy.patterns, ...taxonomy.primaryMuscles, ...taxonomy.supportingMuscles, ...taxonomy.equipment, taxonomy.difficulty];
+});
+assert.ok(exerciseTags.every((tag) => tag.length <= 28 && !tag.includes(":") && !/^(?:Zona|Músculos?|Equipamiento|Dificultad):/i.test(tag)), "Cada etiqueta debe ser un valor breve, no una frase con el nombre de su categoría.");
 assert.equal(new Set(data.exercises.map((exercise) => exercise.image)).size, 87);
 assert.equal(planner.validateInventoryMetadata(data).valid, true);
 assert.equal(planner.validateExerciseMetadata(data.exercises, data).valid, true);
+const invalidExerciseTaxonomy = structuredClone(data.exercises);
+invalidExerciseTaxonomy[0].taxonomy.equipment.push("Material inventado");
+assert.equal(planner.validateExerciseMetadata(invalidExerciseTaxonomy, data).valid, false, "La validación debe rechazar etiquetas fuera del vocabulario canónico.");
+const duplicatedExerciseTag = structuredClone(data.exercises);
+duplicatedExerciseTag[0].taxonomy.primaryMuscles.push(duplicatedExerciseTag[0].taxonomy.primaryMuscles[0]);
+assert.equal(planner.validateExerciseMetadata(duplicatedExerciseTag, data).valid, false, "La validación debe rechazar etiquetas duplicadas.");
+const verboseExerciseTag = structuredClone(data.exercises);
+verboseExerciseTag[0].taxonomy.supportingMuscles[0] = "Músculos secundarios: Deltoides anterior";
+assert.equal(planner.validateExerciseMetadata(verboseExerciseTag, data).valid, false, "La validación debe rechazar frases presentadas como etiquetas.");
 const equipmentVisuals = [
   ...data.equipment,
   ...data.equipment.flatMap((item) => item.accessories || []),
@@ -311,15 +330,27 @@ assert.equal(planner.routineFacetLabel("complement", "FIN"), "Finalizador de otr
 
 const initialExerciseFacets = planner.exerciseFilterFacets(data.exercises, {});
 assert.equal(initialExerciseFacets.options.length, 91);
-for (const groupOption of initialExerciseFacets.facets.muscle) {
-  const filtered = planner.exerciseFilterFacets(data.exercises, { muscle: groupOption.value });
+assert.deepEqual(Object.keys(initialExerciseFacets.facets), ["region", "primaryMuscle", "movement", "equipment", "difficulty"]);
+for (const groupOption of initialExerciseFacets.facets.region) {
+  const filtered = planner.exerciseFilterFacets(data.exercises, { region: groupOption.value });
   assert.equal(filtered.options.length, groupOption.count);
-  assert.ok(filtered.options.every((exercise) => exercise.muscleGroups.includes(groupOption.value)));
+  assert.ok(filtered.options.every((exercise) => exercise.taxonomy.primaryRegion === groupOption.value));
+  for (const muscleOption of filtered.facets.primaryMuscle) {
+    const muscleFiltered = planner.exerciseFilterFacets(data.exercises, { region: groupOption.value, primaryMuscle: muscleOption.value });
+    assert.equal(muscleFiltered.options.length, muscleOption.count);
+    assert.ok(muscleFiltered.options.every((exercise) => exercise.taxonomy.primaryRegion === groupOption.value && exercise.taxonomy.primaryMuscles.includes(muscleOption.value)));
+  }
 }
-for (const equipmentOption of initialExerciseFacets.facets.equipment) {
-  const filtered = planner.exerciseFilterFacets(data.exercises, { equipment: equipmentOption.value });
-  assert.equal(filtered.options.length, equipmentOption.count);
+for (const facet of ["movement", "equipment", "difficulty"]) {
+  for (const option of initialExerciseFacets.facets[facet]) {
+    const filtered = planner.exerciseFilterFacets(data.exercises, { [facet]: option.value });
+    assert.equal(filtered.options.length, option.count);
+  }
 }
+const pressPlano = data.exercises.find((exercise) => exercise.sourceId === "E01");
+assert.ok(pressPlano.taxonomy.supportingMuscles.includes("Core anterior"));
+assert.equal(planner.exerciseMatchesFilters(pressPlano, { primaryMuscle: "Core anterior" }), false, "Un músculo de apoyo no debe activar el filtro de músculo principal.");
+assert.equal(planner.exerciseMatchesFilters(pressPlano, { query: "Core anterior" }), true, "La búsqueda textual sí debe localizar músculos de apoyo.");
 assert.deepEqual(planner.exerciseFilterFacets(data.exercises, { query: "E83" }).options.map((exercise) => exercise.sourceId), ["E83"]);
 
 const metrics = planner.scheduleMetrics(["R01", "R38", "R44", "H01", null, null, null], routines);
@@ -433,6 +464,7 @@ for (const legacyBadge of ["streak-badge", "schedule-today-badge", "exercise-bad
 }
 for (const removedConcept of ["PCH-01", "randomize-week", "data-plan-mode", "data-plan-time", "8 ejercicios", "E/H/M/C", "filter-routine-family"]) assert.ok(!appSource.includes(removedConcept), `app.js conserva ${removedConcept}`);
 for (const internalPresentation of ["item.tagsRaw.split", "escapeHtml(item.sourceId)", "escapeHtml(movement.sourceId)", "escapeHtml(item.id)} ·"]) assert.ok(!appSource.includes(internalPresentation), `app.js muestra ${internalPresentation}`);
+for (const obsoleteExerciseTag of ["Músculos secundarios:", "Músculos principales:", "Zona corporal:", "item.secondaryMuscles", "item.equipmentTags", "item.muscleGroups"]) assert.ok(!appSource.includes(obsoleteExerciseTag), `app.js conserva la etiqueta o acceso obsoleto ${obsoleteExerciseTag}`);
 for (const duplicatedCatalog of ["ROUTINE_TITLE_LABELS", "EXERCISE_TITLE_LABELS", "EQUIPMENT_NAME_LABELS", "LOAD_MODALITIES"]) assert.ok(!appSource.includes(duplicatedCatalog), `app.js vuelve a duplicar ${duplicatedCatalog}`);
 assert.deepEqual(appSource.match(/\b(?:E|R|H)\d{2}\b/g) || [], [], "La interfaz no debe contener identificadores de catálogo escritos a mano.");
 assert.deepEqual(appSource.match(/["'](?:e|r|h)\d{2}["']/g) || [], [], "La interfaz no debe seleccionar registros por identificadores escritos a mano.");

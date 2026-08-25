@@ -11,6 +11,51 @@ from pathlib import Path
 import websocket
 
 
+TEXT_OVERFLOW_AUDIT = r"""root => {
+  if (!root) return ["root:missing"];
+  const rendered = node => {
+    const style = getComputedStyle(node);
+    const box = node.getBoundingClientRect();
+    return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) !== 0 && box.width > 0 && box.height > 0;
+  };
+  const isIntentionalClip = style => ['hidden', 'clip', 'auto', 'scroll'].includes(style.overflowX);
+  const hasHorizontalScroller = node => {
+    for (let parent = node.parentElement; parent && root.contains(parent); parent = parent.parentElement) {
+      const style = getComputedStyle(parent);
+      if (['auto', 'scroll'].includes(style.overflowX) && parent.scrollWidth > parent.clientWidth + 1) return true;
+    }
+    return false;
+  };
+  const issues = [];
+  for (const node of [root, ...root.querySelectorAll('*')]) {
+    if (!rendered(node) || /^(SCRIPT|STYLE|OPTION)$/.test(node.tagName)) continue;
+    const textNodes = [...node.childNodes].filter(child => child.nodeType === Node.TEXT_NODE && child.textContent.trim());
+    if (!textNodes.length) continue;
+    const style = getComputedStyle(node);
+    if (isIntentionalClip(style)) continue;
+    const bounds = node.getBoundingClientRect();
+    const scrolled = hasHorizontalScroller(node);
+    for (const textNode of textNodes) {
+      const range = document.createRange();
+      range.selectNodeContents(textNode);
+      const rects = [...range.getClientRects()].filter(rect => rect.width > .5 && rect.height > .5);
+      const escaped = rects.some(rect => rect.left < bounds.left - 1 || rect.right > bounds.right + 1);
+      const outsideViewport = !scrolled && rects.some(rect => rect.left < -1 || rect.right > document.documentElement.clientWidth + 1);
+      if (escaped || outsideViewport) {
+        const classes = typeof node.className === 'string' && node.className.trim() ? `.${node.className.trim().replace(/\s+/g, '.')}` : '';
+        issues.push(`${node.tagName}${classes}:${textNode.textContent.trim().slice(0, 80)}`);
+        break;
+      }
+    }
+  }
+  return issues;
+}"""
+
+
+def install_text_overflow_audit(devtools):
+    assert devtools.evaluate(f"window.__textOverflowIssues = {TEXT_OVERFLOW_AUDIT}; true")
+
+
 class DevTools:
     def __init__(self, endpoint):
         self.socket = websocket.create_connection(endpoint, timeout=10)
@@ -113,7 +158,7 @@ def mobile_exercise_card_report(devtools):
               truncatedTags: tags.length === 3 && tags.every(tag => {
                 const tagStyle = getComputedStyle(tag);
                 const labelStyle = getComputedStyle(tag.querySelector(':scope > span'));
-                return tagStyle.display === 'flex' && tagStyle.whiteSpace === 'nowrap' && labelStyle.textOverflow === 'ellipsis' && tag.getBoundingClientRect().right <= metaBox.right + tolerance && !/Músculos principales|Coincide:/.test(tag.innerText);
+                return tagStyle.display === 'flex' && tagStyle.whiteSpace === 'nowrap' && labelStyle.textOverflow === 'ellipsis' && tag.getBoundingClientRect().right <= metaBox.right + tolerance && !tag.innerText.includes(':');
               }),
               metadataInsideBody: metaBox.bottom <= bodyBox.bottom + tolerance
             },
@@ -208,7 +253,16 @@ def run(port, base_url, screenshot_dir):
         click(devtools, "#exercise-dialog [data-action='close-dialog']")
         click(devtools, "[data-route='biblioteca']")
         assert devtools.evaluate("[...document.querySelectorAll('.exercise-card .exercise-level-badge')].every(badge => !badge.innerText.includes('–'))")
+        assert devtools.evaluate("[...document.querySelectorAll('.exercise-card .exercise-meta-badge')].every(badge => !badge.innerText.includes(':') && badge.classList.contains('ui-badge--neutral'))")
         assert devtools.evaluate("""(() => { delete window.__filterXss; const target = document.querySelector("[data-action='toggle-exercise-filter']"); target.dataset.value = '<img data-xss-probe src=x onerror=window.__filterXss=1>'; target.click(); return !window.__filterXss && !document.querySelector('[data-xss-probe]') && !document.querySelector("[data-action='toggle-exercise-filter'].is-active"); })()""")
+        click(devtools, "[data-action='toggle-filters']")
+        assert devtools.evaluate("(() => { const panel = document.querySelector('#exercise-filter-panel'); const groups = [...panel.querySelectorAll(':scope > .filter-group')]; return !panel.hidden && groups.length === 5 && groups.every(group => group.querySelector(':scope > h2')?.innerText.trim() && group.querySelector(':scope > p')?.innerText.trim()) && !!panel.querySelector('[data-facet=region]') && !!panel.querySelector('[data-facet=movement]') && !panel.querySelector('[data-facet=primaryMuscle]'); })()")
+        click(devtools, "#exercise-filter-panel [data-facet='region'][data-value='Pecho']")
+        assert devtools.evaluate("(() => { const primary = [...document.querySelectorAll('#exercise-filter-panel [data-facet=primaryMuscle]')]; return primary.length > 0 && primary.every(button => !/Core anterior|Deltoides anterior/.test(button.dataset.value)) && document.querySelector('[data-action=\"toggle-filters\"] .ui-badge--number')?.innerText === '1'; })()")
+        click(devtools, "#exercise-filter-panel [data-facet='primaryMuscle'][data-value='Pectoral mayor']")
+        assert devtools.evaluate("(() => { const ids = [...document.querySelectorAll('.exercise-card')].map(card => card.dataset.exercise); const source = window.TrainingData.exercises.filter(item => ids.includes(item.id)); return source.length > 0 && source.every(item => item.taxonomy.primaryRegion === 'Pecho' && item.taxonomy.primaryMuscles.includes('Pectoral mayor')) && document.querySelector('[data-action=\"toggle-filters\"] .ui-badge--number')?.innerText === '2'; })()")
+        click(devtools, "[data-action='reset-filters']")
+        click(devtools, "[data-action='toggle-filters']")
         assert_layout_report("Tarjetas de ejercicios a 390 px", mobile_exercise_card_report(devtools))
         assert devtools.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
         if screenshot_dir:
@@ -216,6 +270,15 @@ def run(port, base_url, screenshot_dir):
             screenshot = devtools.call("Page.captureScreenshot", {"format": "png", "fromSurface": True})["data"]
             Path(screenshot_dir, "library-mobile.png").write_bytes(base64.b64decode(screenshot))
         click(devtools, ".exercise-card[data-exercise='e14']")
+        taxonomy_report = devtools.evaluate("(() => { const dialog = document.querySelector('#exercise-dialog[open]'); const taxonomy = dialog?.querySelector('.exercise-taxonomy'); const badges = [...taxonomy?.querySelectorAll('.ui-badge') || []]; return { tags: badges.map(tag => tag.textContent.trim()), oneSection: !!taxonomy && !taxonomy.querySelector('section, h3'), uniformTone: badges.length > 0 && badges.every(tag => tag.classList.contains('ui-badge--neutral')), hasLegacyCopy: dialog?.innerText.includes('Músculos secundarios'), hasDose: !!dialog?.querySelector('.exercise-dose'), hasLegacyMeta: !!dialog?.querySelector('.detail-title > .exercise-meta') }; })()")
+        assert taxonomy_report == {
+            "tags": ["Pecho", "Empuje horizontal", "Pectoral mayor", "Tríceps braquial", "Deltoides anterior", "Core anterior"],
+            "oneSection": True,
+            "uniformTone": True,
+            "hasLegacyCopy": False,
+            "hasDose": True,
+            "hasLegacyMeta": False,
+        }, f"Taxonomía visual incoherente: {taxonomy_report!r}"
         assert devtools.evaluate("(() => { const dialog = document.querySelector('#exercise-dialog[open]'); const visual = dialog?.querySelector('.exercise-detail-hero'); const image = visual?.querySelector('img'); const close = visual?.querySelector(':scope > .dialog-close'); const thumbs = [...dialog?.querySelectorAll('.detail-equipment-thumb') || []]; const anchors = [...dialog?.querySelectorAll('[data-equipment-kind=anchor]') || []]; if (!dialog || !visual || !image || !close || !thumbs.length || !anchors.length) return false; const dialogBox = dialog.getBoundingClientRect(); const visualBox = visual.getBoundingClientRect(); const imageBox = image.getBoundingClientRect(); const closeBox = close.getBoundingClientRect(); const visualStyle = getComputedStyle(visual); window.__exerciseClosePosition = { top: closeBox.top - dialogBox.top, right: dialogBox.right - closeBox.right }; return Math.abs(window.__exerciseClosePosition.top - 14) < 1 && Math.abs(window.__exerciseClosePosition.right - 14) < 1 && Math.abs(imageBox.width - visualBox.width) < 1 && getComputedStyle(image).maxHeight === 'none' && visualStyle.backgroundColor === 'rgb(255, 255, 255)' && visualStyle.borderBottomStyle !== 'none' && parseFloat(visualStyle.borderBottomWidth) >= 1 && thumbs.every(thumb => getComputedStyle(thumb).backgroundColor === 'rgb(255, 255, 255)') && anchors.every(anchor => anchor.querySelector('.detail-equipment-thumb.is-anchor svg.icon') && !anchor.querySelector('.detail-equipment-thumb img')); })()")
         close_center = devtools.evaluate("(() => { const close = document.querySelector('.exercise-detail-hero > .dialog-close'); const box = close.getBoundingClientRect(); window.__closeBackgroundBeforeHover = getComputedStyle(close).backgroundColor; return { x: box.left + box.width / 2, y: box.top + box.height / 2 }; })()")
         devtools.call("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": close_center["x"], "y": close_center["y"]})
@@ -623,6 +686,7 @@ def run(port, base_url, screenshot_dir):
             devtools.call("Emulation.setDeviceMetricsOverride", {"width": width, "height": height, "deviceScaleFactor": 1, "mobile": width <= 900})
             devtools.call("Page.reload", {"ignoreCache": True})
             wait_for(devtools, "document.readyState === 'complete' && !!document.querySelector('.app-shell')")
+            install_text_overflow_audit(devtools)
             for route in responsive_routes:
                 click(devtools, f"[data-route='{route}']")
                 audit = devtools.evaluate(r"""(() => {
@@ -647,15 +711,20 @@ def run(port, base_url, screenshot_dir):
                   const truncatedNavigationLabels = [...document.querySelectorAll('.bottom-nav .nav-link > span:last-child')].filter(node => visible(node) && node.scrollWidth > node.clientWidth + 1).map(node => node.textContent.trim());
                   const compactNavigation = getComputedStyle(document.querySelector('.mobile-header')).display !== 'none' && getComputedStyle(document.querySelector('.bottom-nav')).display !== 'none' && getComputedStyle(document.querySelector('.sidebar')).display === 'none';
                   const wideNavigation = getComputedStyle(document.querySelector('.mobile-header')).display === 'none' && getComputedStyle(document.querySelector('.bottom-nav')).display === 'none' && getComputedStyle(document.querySelector('.sidebar')).display !== 'none';
-                  return { viewportWidth: innerWidth, overflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth), activeOutside: !activeBox || activeBox.left < -.5 || activeBox.right > document.documentElement.clientWidth + .5, duplicateIds, tinyText, unnamedActions, smallTargets, unlabeledFields, imagesWithoutAlt, internalCodes, malformedBadges, malformedNumberBadges, legacyBadges, truncatedNavigationLabels, compactNavigation, wideNavigation };
+                  const textOverflow = window.__textOverflowIssues(active);
+                  return { viewportWidth: innerWidth, overflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth), activeOutside: !activeBox || activeBox.left < -.5 || activeBox.right > document.documentElement.clientWidth + .5, duplicateIds, tinyText, unnamedActions, smallTargets, unlabeledFields, imagesWithoutAlt, internalCodes, malformedBadges, malformedNumberBadges, legacyBadges, truncatedNavigationLabels, textOverflow, compactNavigation, wideNavigation };
                 })()""")
                 expected_navigation = audit["compactNavigation"] if width <= 900 else audit["wideNavigation"]
                 failures = {key: value for key, value in audit.items() if key not in ("viewportWidth", "compactNavigation", "wideNavigation") and value not in (0, False, [])}
                 assert audit["viewportWidth"] == width and expected_navigation and not failures, f"Auditoría {route} a {width} px: {json.dumps(audit, ensure_ascii=False)}"
+                if route == "equipamiento" and width <= 580:
+                    inventory_metrics = devtools.evaluate("(() => { const labels = [...document.querySelectorAll('.inventory-summary dt')]; return { labels: labels.map(node => node.innerText.trim()), contained: labels.every(node => { const box = node.getBoundingClientRect(); const parent = node.parentElement.getBoundingClientRect(); return box.left >= parent.left - 1 && box.right <= parent.right + 1 && node.scrollWidth <= node.clientWidth + 1; }) }; })()")
+                    assert inventory_metrics == {"labels": ["FAMILIAS", "PIEZAS", "VARIANTES"], "contained": True}, f"Resumen de material desbordado a {width} px: {inventory_metrics!r}"
 
         devtools.call("Emulation.setDeviceMetricsOverride", {"width": 390, "height": 844, "deviceScaleFactor": 1, "mobile": True})
         devtools.call("Page.reload", {"ignoreCache": True})
         wait_for(devtools, "document.readyState === 'complete' && !!document.querySelector('.app-shell')")
+        install_text_overflow_audit(devtools)
 
         def audit_detail_surface(kind, record_id):
             audit = devtools.evaluate(r"""(() => {
@@ -672,17 +741,30 @@ def run(port, base_url, screenshot_dir):
               const internalCodes = root.textContent.match(/\b(?:E|R|H)\d{2}\b|\b(?:HIIT|EMOM|HIFT|RIR|DB|KB|ROW|CU|CR)\b/g) || [];
               const malformedBadges = [...root.querySelectorAll('.ui-badge')].filter(node => { const style = getComputedStyle(node); return !['flex', 'inline-flex'].includes(style.display) || style.borderRadius !== '999px' || parseFloat(style.minHeight) !== 26 || parseFloat(style.fontSize) < 12; }).map(node => node.className);
               const legacyBadges = [...root.querySelectorAll('.exercise-badge, .tag, .quantity-pill, .target-chip')].map(node => node.className);
-              return { missing: false, overflow: Math.max(0, root.scrollWidth - document.documentElement.clientWidth), tinyText, unnamedActions, imagesWithoutAlt, internalCodes, malformedBadges, legacyBadges };
+              const textOverflow = window.__textOverflowIssues(root);
+              return { missing: false, overflow: Math.max(0, root.scrollWidth - document.documentElement.clientWidth), tinyText, unnamedActions, imagesWithoutAlt, internalCodes, malformedBadges, legacyBadges, textOverflow };
             })()""")
             failures = {key: value for key, value in audit.items() if value not in (0, False, [])}
             assert not failures, f"Detalle {kind} {record_id}: {json.dumps(audit, ensure_ascii=False)}"
 
         click(devtools, "[data-route='biblioteca']")
         exercise_ids = devtools.evaluate("window.TrainingData.exercises.map(item => item.id)")
+        audited_equipment = set()
         for exercise_id in exercise_ids:
             assert devtools.evaluate(f"(() => {{ const node = document.querySelector('.exercise-card[data-exercise={json.dumps(exercise_id)}]'); if (!node) return false; node.click(); return true; }})()")
             audit_detail_surface("ejercicio", exercise_id)
+            equipment_refs = devtools.evaluate("[...document.querySelectorAll('[data-action=view-exercise-equipment]')].map(node => ({ kind: node.dataset.equipmentKind, id: node.dataset.equipmentId }))")
+            for equipment_ref in equipment_refs:
+                equipment_key = f"{equipment_ref['kind']}:{equipment_ref['id']}"
+                if equipment_key in audited_equipment:
+                    continue
+                opened = devtools.evaluate(f"(() => {{ const node = document.querySelector('[data-action=view-exercise-equipment][data-equipment-kind={json.dumps(equipment_ref['kind'])}][data-equipment-id={json.dumps(equipment_ref['id'])}]'); if (!node) return false; node.click(); return true; }})()")
+                assert opened, f"No se pudo abrir el material {equipment_key}"
+                audit_detail_surface("material", equipment_key)
+                click(devtools, "[data-action='back-to-exercise']")
+                audited_equipment.add(equipment_key)
             devtools.evaluate("document.querySelector('#exercise-dialog').close()")
+        assert len(audited_equipment) == 16, f"Cobertura incompleta de detalles de material: {sorted(audited_equipment)}"
 
         click(devtools, "[data-route='plan']")
         click(devtools, ".schedule-row [data-action='choose-routine']")

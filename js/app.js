@@ -102,6 +102,17 @@
     return renderBadge(value, { ...options, numeric: true });
   }
 
+  function renderExerciseTaxonomy(taxonomy) {
+    const categories = [
+      ["Zona principal", [taxonomy.primaryRegion]],
+      ["Patrón de movimiento", taxonomy.patterns],
+      ["Músculo principal", taxonomy.primaryMuscles],
+      ["Músculo de apoyo", taxonomy.supportingMuscles]
+    ];
+    const tags = categories.flatMap(([label, values]) => (values || []).map((value) => ({ label, value })));
+    return `<div class="exercise-taxonomy" aria-label="Taxonomía del ejercicio">${tags.map(({ label, value }) => renderBadge(value, { label: `${label}: ${value}` })).join("")}</div>`;
+  }
+
   function renderDisclosure({ summary, content, className = "", summaryClass = "" }) {
     return `<details class="app-disclosure ${className}"><summary class="${summaryClass}">${summary}<span class="app-disclosure-chevron">${icon("chevron")}</span></summary><div class="app-disclosure-panel"><div class="app-disclosure-clip"><div class="app-disclosure-body">${content}</div></div></div></details>`;
   }
@@ -163,7 +174,7 @@
   let legacyStorageDetected = false;
   let state = loadState();
   let route = "inicio";
-  let libraryFilters = { query: "", muscle: null, specificMuscle: null, equipment: null, difficulty: null, panelOpen: false };
+  let libraryFilters = { query: "", region: null, primaryMuscle: null, movement: null, equipment: null, difficulty: null, panelOpen: false };
   let routinePickerFilters = emptyRoutinePickerFilters();
   let progressFilters = { query: "", range: "all", visible: 20 };
   let workout = state.activeWorkout;
@@ -1130,11 +1141,13 @@
       </div></section>`;
   }
 
-  function renderFacet(title, facet, options) {
+  function renderFacet(title, description, facet, options) {
+    const sortedOptions = [...options].sort((first, second) => SPANISH_COLLATOR.compare(first.value, second.value));
     return `<section class="filter-group" aria-labelledby="filter-${facet}-title">
       <h2 id="filter-${facet}-title">${title}</h2>
+      <p>${escapeHtml(description)}</p>
       <div class="filter-pills" role="group" aria-label="${title}">
-        ${options.map((option) => { const active = libraryFilters[facet] === option.value; return `<button type="button" class="filter-pill ${active ? "is-active" : ""}" data-action="toggle-exercise-filter" data-facet="${facet}" data-value="${escapeHtml(option.value)}" aria-pressed="${active}"><span>${escapeHtml(option.value)}</span>${renderNumberBadge(option.count, { tone: active ? "accent" : "neutral", label: `${option.count} resultados` })}</button>`; }).join("")}
+        ${sortedOptions.map((option) => { const active = libraryFilters[facet] === option.value; return `<button type="button" class="filter-pill ${active ? "is-active" : ""}" data-action="toggle-exercise-filter" data-facet="${facet}" data-value="${escapeHtml(option.value)}" aria-pressed="${active}"><span>${escapeHtml(option.value)}</span>${renderNumberBadge(option.count, { tone: active ? "accent" : "neutral", label: `${option.count} resultados` })}</button>`; }).join("")}
       </div>
     </section>`;
   }
@@ -1142,9 +1155,9 @@
   function renderLibrary() {
     const root = document.querySelector('[data-view="biblioteca"]');
     const filterResult = PLANNER.exerciseFilterFacets(DATA.exercises, libraryFilters);
-    libraryFilters.specificMuscle = filterResult.selectedSpecificMuscle;
+    libraryFilters.primaryMuscle = filterResult.selectedPrimaryMuscle;
     const results = filterResult.options.sort((first, second) => SPANISH_COLLATOR.compare(first.name, second.name));
-    const appliedFilters = [libraryFilters.muscle, libraryFilters.specificMuscle, libraryFilters.equipment, libraryFilters.difficulty].filter(Boolean).length;
+    const appliedFilters = [libraryFilters.region, libraryFilters.primaryMuscle, libraryFilters.movement, libraryFilters.equipment, libraryFilters.difficulty].filter(Boolean).length;
     root.innerHTML = `
       <header class="view-header"><div><p class="eyebrow">Biblioteca de ejercicios</p><h1 id="biblioteca-title">Ejercicios</h1><p>${DATA.exercises.length} movimientos y protocolos documentados, organizados por patrón, musculatura y equipamiento.</p></div></header>
       <div class="library-toolbar">
@@ -1152,17 +1165,18 @@
         <button class="filter-toggle ${libraryFilters.panelOpen ? "is-active" : ""}" type="button" data-action="toggle-filters" aria-expanded="${libraryFilters.panelOpen}" aria-controls="exercise-filter-panel">${icon("filters")}<span>Filtros</span>${renderNumberBadge(appliedFilters, { tone: appliedFilters ? "success" : "neutral", label: `${appliedFilters} filtros aplicados` })}</button>
       </div>
       <div id="exercise-filter-panel" class="filter-panel" ${libraryFilters.panelOpen ? "" : "hidden"}>
-        <div class="filter-panel-head"><div><h2>Filtrar ejercicios</h2><p>Primero delimita el grupo principal y después el músculo específico.</p></div>${appliedFilters ? `<button class="text-button" type="button" data-action="reset-filters">Limpiar ${appliedFilters === 1 ? "filtro" : "filtros"}</button>` : ""}</div>
-        ${renderFacet("1. Grupo muscular principal", "muscle", filterResult.facets.muscle)}
-        ${libraryFilters.muscle ? renderFacet("2. Músculo específico del grupo", "specificMuscle", filterResult.facets.specificMuscle) : `<section class="filter-group filter-group-pending"><h2>2. Músculo específico del grupo</h2><p>Selecciona primero un grupo muscular para ver únicamente sus músculos.</p></section>`}
-        ${renderFacet("Equipamiento", "equipment", filterResult.facets.equipment)}
-        ${renderFacet("Dificultad técnica", "difficulty", filterResult.facets.difficulty)}
+        <div class="filter-panel-head"><div><h2>Filtrar ejercicios</h2><p>Cada filtro utiliza una categoría independiente de la taxonomía del ejercicio.</p></div>${appliedFilters ? `<button class="text-button" type="button" data-action="reset-filters">Limpiar ${appliedFilters === 1 ? "filtro" : "filtros"}</button>` : ""}</div>
+        ${renderFacet("1. Zona corporal principal", "Indica dónde se concentra el objetivo del ejercicio, sin mezclar zonas que solo estabilizan.", "region", filterResult.facets.region)}
+        ${libraryFilters.region ? renderFacet("2. Músculo principal", "Incluye únicamente músculos clasificados como objetivo principal dentro de la zona seleccionada.", "primaryMuscle", filterResult.facets.primaryMuscle) : `<section class="filter-group filter-group-pending"><h2>2. Músculo principal</h2><p>Selecciona primero una zona corporal para mostrar solo sus músculos principales.</p></section>`}
+        ${renderFacet("Patrón de movimiento", "Agrupa variantes que comparten la misma acción motriz, aunque cambie el material.", "movement", filterResult.facets.movement)}
+        ${renderFacet("Equipamiento", "Muestra ejercicios compatibles con una familia concreta de material.", "equipment", filterResult.facets.equipment)}
+        ${renderFacet("Dificultad técnica", "Clasifica la complejidad documentada de ejecución, no la carga utilizada.", "difficulty", filterResult.facets.difficulty)}
       </div>
       <p class="result-count"><strong>${results.length}</strong> ${results.length === 1 ? "ejercicio encontrado" : "ejercicios encontrados"}${appliedFilters ? ` · ${appliedFilters} ${appliedFilters === 1 ? "filtro activo" : "filtros activos"}` : ""}</p>
       <div class="exercise-grid">
-        ${results.map((item) => { const shownMuscle = libraryFilters.specificMuscle || item.primaryMuscles.join(" · "); const shownDifficulty = difficultyBadgeLabel(item.difficulty); return `<button class="exercise-card" type="button" data-action="view-exercise" data-exercise="${item.id}" aria-label="Abrir ficha técnica de ${escapeHtml(exerciseTitleFor(item))}">
+        ${results.map((item) => { const taxonomy = item.taxonomy; const shownMuscle = libraryFilters.primaryMuscle || taxonomy.primaryMuscles[0]; const shownDifficulty = difficultyBadgeLabel(taxonomy.difficulty); return `<button class="exercise-card" type="button" data-action="view-exercise" data-exercise="${item.id}" aria-label="Abrir ficha técnica de ${escapeHtml(exerciseTitleFor(item))}">
           <span class="exercise-image">${exerciseMedia(item, "", 'loading="lazy" width="640" height="640"')}</span>
-          <span class="exercise-card-body"><span class="exercise-card-topline"><small>${escapeHtml(clearSequenceText(item.pattern))}</small>${renderBadge(shownDifficulty, { tone: `difficulty-${difficultyTone(shownDifficulty)}`, className: "exercise-level-badge" })}</span><strong class="exercise-card-title">${escapeHtml(exerciseTitleFor(item))}</strong><span class="exercise-meta">${renderBadge(item.muscleGroups.join(" · "), { className: "exercise-meta-badge" })}${renderBadge(shownMuscle, { tone: libraryFilters.specificMuscle ? "primary" : "neutral", className: "exercise-meta-badge" })}${renderBadge(item.equipmentTags.join(" · "), { className: "exercise-meta-badge" })}</span><span class="card-arrow" aria-hidden="true">${icon("arrow")}</span></span>
+          <span class="exercise-card-body"><span class="exercise-card-topline"><small>${escapeHtml(taxonomy.patterns.join(" · "))}</small>${renderBadge(shownDifficulty, { tone: `difficulty-${difficultyTone(shownDifficulty)}`, className: "exercise-level-badge", label: `Dificultad: ${taxonomy.difficulty}` })}</span><strong class="exercise-card-title">${escapeHtml(exerciseTitleFor(item))}</strong><span class="exercise-meta">${renderBadge(taxonomy.primaryRegion, { className: "exercise-meta-badge", label: `Zona principal: ${taxonomy.primaryRegion}` })}${renderBadge(shownMuscle, { className: "exercise-meta-badge", label: `Músculo principal: ${shownMuscle}` })}${renderBadge(taxonomy.equipment[0], { className: "exercise-meta-badge", label: `Equipamiento principal: ${taxonomy.equipment[0]}` })}</span><span class="card-arrow" aria-hidden="true">${icon("arrow")}</span></span>
         </button>`; }).join("")}
       </div>
       ${results.length ? "" : `<div class="empty-state"><span class="empty-icon">${icon("search")}</span><h2>Sin resultados</h2><p>Prueba con otro término o restablece los filtros para volver a ver toda la biblioteca.</p><button class="button button-secondary" type="button" data-action="reset-filters">Restablecer filtros</button></div>`}`;
@@ -1221,7 +1235,7 @@
       </header>
       <section class="inventory-summary" aria-label="Resumen del inventario">
         <div class="inventory-summary-copy"><span>${icon("dumbbell")}</span><div><strong>Material confirmado</strong><small>No se presupone equipo que no esté en esta lista.</small></div></div>
-        <dl><div><dt>Familias</dt><dd>${DATA.equipment.length}</dd></div><div><dt>Piezas</dt><dd>${totalUnits}</dd></div><div><dt>Configuraciones</dt><dd>${totalVariants}</dd></div></dl>
+        <dl><div><dt>Familias</dt><dd>${DATA.equipment.length}</dd></div><div><dt>Piezas</dt><dd>${totalUnits}</dd></div><div><dt>Variantes</dt><dd>${totalVariants}</dd></div></dl>
       </section>
       <div class="catalog-grid">${mainItems.map(renderEquipmentCard).join("")}</div>
       <section class="band-catalog" aria-labelledby="bands-title">
@@ -1530,10 +1544,12 @@
     if (!preserveContext) detailContext = null;
     const dialog = document.getElementById("exercise-dialog");
     const equipmentItems = item.equipmentRefs.map((ref) => equipmentReferenceButton(item, ref)).join("");
+    const taxonomy = item.taxonomy;
+    const taxonomyTags = renderExerciseTaxonomy(taxonomy);
     dialog.innerHTML = `<div class="dialog-scroll detail-dialog-scroll" data-dialog-scroll>
       ${detailContext?.routineId ? `<header class="dialog-header equipment-modal-header"><button class="back-button" type="button" data-action="back-to-routine">${icon("back")}<span>Volver a la rutina</span></button><button type="button" class="icon-button dialog-close" data-action="close-dialog" aria-label="Cerrar">${icon("close")}</button></header>` : ""}
       <div class="exercise-detail-hero">${exerciseMedia(item, `Referencia de ${exerciseTitleFor(item)}`)}${detailContext?.routineId ? "" : `<button type="button" class="icon-button dialog-close" data-action="close-dialog" aria-label="Cerrar">${icon("close")}</button>`}</div>
-      <div class="dialog-body"><div class="detail-title"><p class="eyebrow">${escapeHtml(clearProseText(item.category))} · ${escapeHtml(item.difficulty)}</p><h2 id="exercise-dialog-title">${escapeHtml(exerciseTitleFor(item))}</h2><p>${escapeHtml(clearSequenceText(item.pattern))}</p><div class="exercise-meta">${renderBadge(`Zona corporal: ${item.muscleGroups.join(" · ")}`)}${renderBadge(`Músculos principales: ${item.primaryMuscles.join(" · ")}`)}${item.secondaryMuscles.length ? renderBadge(`Músculos secundarios: ${item.secondaryMuscles.join(" · ")}`) : ""}${renderBadge(`Equipamiento: ${clearEquipmentText(item.equipment)}`)}${renderBadge(`Dosificación: ${clearSequenceText(item.dose)}`)}</div></div>
+      <div class="dialog-body"><div class="detail-title"><p class="eyebrow">${escapeHtml(clearProseText(taxonomy.family))} · ${escapeHtml(taxonomy.difficulty)}</p><h2 id="exercise-dialog-title">${escapeHtml(exerciseTitleFor(item))}</h2>${taxonomyTags}<div class="exercise-dose"><span>Dosificación orientativa</span><strong>${escapeHtml(clearSequenceText(item.dose))}</strong></div></div>
       <section class="detail-section detail-equipment-section" aria-labelledby="exercise-equipment-title"><div class="detail-section-heading"><h3 id="exercise-equipment-title">${icon("dumbbell")} Equipamiento utilizado</h3>${renderNumberBadge(item.equipmentRefs.length, { tone: "primary", label: `${item.equipmentRefs.length} elementos de equipamiento` })}</div><div class="detail-equipment-list">${equipmentItems}</div></section>
       <section class="detail-section"><h3>${icon("sparkles")} Clave técnica</h3><p>${escapeHtml(clearProseText(item.cue))}</p></section><section class="detail-section"><h3>${icon("calendar")} Paso a paso</h3><ol>${item.steps.map((step) => `<li>${escapeHtml(clearProseText(step))}</li>`).join("")}</ol></section><section class="detail-section"><div class="safety-box">${icon("shield")}<div><h3>Técnica, progresión y seguridad</h3><p>${escapeHtml(clearProseText(item.safety))}</p></div></div></section></div>
     </div>`;
@@ -1664,7 +1680,7 @@
         : `<section class="workout-panel set-control"><div class="workout-panel-heading"><div><span class="eyebrow">Serie ${currentSet.number} de ${step.sets.length}</span><h3>${timerLabel}</h3></div>${renderBadge(clearSequenceText(step.prescription), { tone: "success", className: "set-target-badge" })}</div>${compactSetProgress(step)}${renderWorkoutTimer(timerValue)}${materialPreparation}<div class="timer-actions"><button class="button button-secondary" type="button" data-action="workout-timer-reset">${icon("reset")} Reiniciar</button><button class="button button-primary timer-main-button" type="button" data-action="workout-timer-toggle">${icon(workout.timer.running ? "pause" : "play")} ${timerButton}</button></div><div class="set-inputs">${renderSeriesSelectionFields(step.selection, movement)}${step.plan.targetType === "reps" ? `<label class="workout-field"><span>Repeticiones realizadas</span><select data-workout-control="reps">${repetitionOptions}</select></label>` : step.plan.targetType === "seconds" ? `<label class="workout-field"><span>Tiempo objetivo${step.plan.perSide ? " por lado" : ""}</span><input type="number" min="${step.plan.targetMin}" max="${step.plan.targetMax}" inputmode="numeric" data-workout-control="set-target-seconds" value="${currentSet.targetSeconds}" /><small>${step.plan.targetMin === step.plan.targetMax ? `${step.plan.targetMin} segundos documentados` : `Entre ${step.plan.targetMin} y ${step.plan.targetMax} segundos`}${step.plan.perSide ? ". Reinicia el temporizador para el segundo lado antes de completar." : ""}</small></label>` : `<p class="timed-set-note">Usa el cronómetro libre para registrar este bloque.</p>`}${step.plan.targetType === "reps" ? `<label class="workout-field"><span>Repeticiones posibles en reserva</span><select data-workout-control="reserve"><option value="" ${currentSet.repetitionsInReserve === null ? "selected" : ""}>Sin registrar</option>${Array.from({ length: 11 }, (_, index) => `<option value="${index}" ${currentSet.repetitionsInReserve === index ? "selected" : ""}>${index}${index === 0 ? " · esfuerzo máximo" : ""}</option>`).join("")}</select></label>` : ""}</div><div class="complete-set-actions"><button class="button button-accent button-wide" type="button" data-action="workout-complete-set">${icon("check")} Completar y descansar</button>${restDurationControl}</div>${step.optional ? `<button class="text-button" type="button" data-action="workout-skip-exercise">Omitir este ejercicio opcional</button>` : ""}</section>`;
     const seriesPanel = `<section class="workout-panel set-list-panel"><div class="workout-panel-heading"><div><span class="eyebrow">Seguimiento</span><h3>Series</h3></div><span>${progress.completed} de ${progress.total}</span></div><div class="set-list">${sets}</div><div class="set-list-actions">${step.plannedSets < step.plan.maximumSets ? `<button class="text-button" type="button" data-action="workout-add-set">Añadir serie documentada</button>` : ""}${step.plannedSets > step.plan.minimumSets ? `<button class="text-button" type="button" data-action="workout-remove-set">Quitar última serie</button>` : ""}</div></section>`;
     const techniqueDisclosure = renderDisclosure({ className: "workout-details mobile-exercise-details", summary: "Técnica y seguridad", content: `<section class="workout-reference-section"><h4>Técnica</h4>${techniqueSteps}</section><section class="workout-reference-section"><h4>Seguridad</h4>${safetyPoints}</section>` });
-    return `${workoutHeader(item)}<main class="workout-main">${position}<div class="workout-timer-stage">${rest}</div><section class="workout-exercise"><header class="workout-exercise-heading"><p class="eyebrow">${escapeHtml(clearProseText(movement.category))}${step.optional ? " · Ejercicio opcional" : ""}</p><h3>${escapeHtml(exerciseTitleFor(movement))}</h3></header><div class="workout-exercise-visual">${exerciseMedia(movement, `Referencia de ${exerciseTitleFor(movement)}`)}</div><div class="workout-exercise-copy">${techniqueDisclosure}</div></section>${previous}${seriesPanel}${stepResolved && workout.phase !== "rest" && step.sets.some((set) => set.completed) ? renderEffortRating(step.effort, "step") : ""}<label class="workout-field workout-notes"><span>Notas para la próxima sesión</span><textarea rows="2" maxlength="500" data-workout-control="notes" placeholder="Por ejemplo: técnica, molestias o ajuste para la próxima semana">${escapeHtml(step.notes)}</textarea></label></main>`;
+    return `${workoutHeader(item)}<main class="workout-main">${position}<div class="workout-timer-stage">${rest}</div><section class="workout-exercise"><header class="workout-exercise-heading"><p class="eyebrow">${escapeHtml(clearProseText(movement.taxonomy.family))}${step.optional ? " · Ejercicio opcional" : ""}</p><h3>${escapeHtml(exerciseTitleFor(movement))}</h3></header><div class="workout-exercise-visual">${exerciseMedia(movement, `Referencia de ${exerciseTitleFor(movement)}`)}</div><div class="workout-exercise-copy">${techniqueDisclosure}</div></section>${previous}${seriesPanel}${stepResolved && workout.phase !== "rest" && step.sets.some((set) => set.completed) ? renderEffortRating(step.effort, "step") : ""}<label class="workout-field workout-notes"><span>Notas para la próxima sesión</span><textarea rows="2" maxlength="500" data-workout-control="notes" placeholder="Por ejemplo: técnica, molestias o ajuste para la próxima semana">${escapeHtml(step.notes)}</textarea></label></main>`;
   }
 
   function renderIntervalWorkout(item, progress) {
@@ -2102,7 +2118,7 @@
     } catch (error) { /* El estado en memoria igualmente se restablece. */ }
     state = defaultState();
     workout = null;
-    libraryFilters = { query: "", muscle: null, specificMuscle: null, equipment: null, difficulty: null, panelOpen: false };
+    libraryFilters = { query: "", region: null, primaryMuscle: null, movement: null, equipment: null, difficulty: null, panelOpen: false };
     routinePickerFilters = emptyRoutinePickerFilters();
     progressFilters = { query: "", range: "all", visible: 20 };
     stopWorkoutTicker();
@@ -2232,13 +2248,13 @@
     if (action === "toggle-filters") { libraryFilters.panelOpen = !libraryFilters.panelOpen; renderLibrary(); document.querySelector("[data-action='toggle-filters']")?.focus(); }
     if (action === "toggle-exercise-filter") {
       const facet = target.dataset.facet;
-      if (["muscle", "specificMuscle", "equipment", "difficulty"].includes(facet)) {
+      if (["region", "primaryMuscle", "movement", "equipment", "difficulty"].includes(facet)) {
         const canonicalValue = canonicalFacetValue(PLANNER.exerciseFilterFacets(DATA.exercises, libraryFilters).facets[facet], target.dataset.value);
         if (canonicalValue !== null) libraryFilters[facet] = libraryFilters[facet] === canonicalValue ? null : canonicalValue;
       }
       renderLibrary();
     }
-    if (action === "reset-filters") { libraryFilters = { query: "", muscle: null, specificMuscle: null, equipment: null, difficulty: null, panelOpen: libraryFilters.panelOpen }; renderLibrary(); }
+    if (action === "reset-filters") { libraryFilters = { query: "", region: null, primaryMuscle: null, movement: null, equipment: null, difficulty: null, panelOpen: libraryFilters.panelOpen }; renderLibrary(); }
     if (action === "workout-set-effort" && workout) {
       const context = target.dataset.context || "step";
       const movementIndex = context.startsWith("movement-") ? Number(context.split("-")[1]) : -1;

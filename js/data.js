@@ -4,11 +4,6 @@
 
   const exercises = window.TrainingExercises;
   if (!Array.isArray(exercises) || exercises.length !== 91) throw new Error("La biblioteca de ejercicios E01–E91 no se ha cargado.");
-  const muscleMetadata = Object.fromEntries(exercises.map((exercise) => [exercise.id, {
-    primaryMuscle: exercise.primaryMuscle,
-    primaryMuscles: exercise.primaryMuscles,
-    secondaryMuscles: exercise.secondaryMuscles
-  }]));
 
   const profiles = {
     personal: {
@@ -54,7 +49,6 @@
     appVersion: 6,
     days: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
     exercises,
-    muscleMetadata,
     routines: {},
     profiles,
     weeklyPresets,
